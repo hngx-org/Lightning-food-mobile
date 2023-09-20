@@ -14,4 +14,5 @@ class AppColor{
   static Color pureWhite = Color(0xFFFFFFFF);
   static Color white2 = Color(0xFFFDFDFD);
   static Color white3 = Color(0xFFF0F0F0);
+  static Color errorColor = Color(0xFFB42318);
 }

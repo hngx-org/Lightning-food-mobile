@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
+import 'package:lightning_food_mobile/views/profile_screen/profile_view_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -46,9 +47,7 @@ class _HomeState extends State<Home> {
     Container(
       color: Colors.yellow,
     ),
-    Container(
-      color: Colors.brown,
-    )
+    const ProfileViewScreen(),
   ];
 
   void _onItemTapped(int index) {
