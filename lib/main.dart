@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size (300,300),
-      builder: (_, child){
+      designSize: Size(300, 300),
+      builder: (_, child) {
         return MaterialApp(
           theme: ThemeData(
             useMaterial3: true,
@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
           home: const Home(),
         );
       },
-
     );
   }
 }
@@ -37,12 +36,24 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int selectedIndex = 0;
-  List views = [];
+  List views = [
+    Container(
+      color: Colors.green,
+    ),
+    Container(
+      color: Colors.black,
+    ),
+    Container(
+      color: Colors.yellow,
+    ),
+    Container(
+      color: Colors.brown,
+    )
+  ];
 
-  void _onItemTapped(int index){
-    setState((){
+  void _onItemTapped(int index) {
+    setState(() {
       selectedIndex = index;
-
     });
   }
 
@@ -51,14 +62,16 @@ class _HomeState extends State<Home> {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         onTap: _onItemTapped,
-        currentIndex: 0,
+        currentIndex: selectedIndex,
         type: BottomNavigationBarType.fixed,
-        fixedColor: AppColor.plainBlack,
+        // fixedColor: AppColor.plainBlack,
+        selectedItemColor: AppColor.primaryColor,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Iconsax.home),label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Iconsax.search_normal), label: "Search"),
-          BottomNavigationBarItem(icon: Icon(Iconsax.star),label: "Star"),
-          BottomNavigationBarItem(icon: Icon(Icons.person),label: "Profile"),
+          BottomNavigationBarItem(icon: Icon(Iconsax.home), label: "Home"),
+          BottomNavigationBarItem(
+              icon: Icon(Iconsax.search_normal), label: "Search"),
+          BottomNavigationBarItem(icon: Icon(Iconsax.star), label: "Star"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
         ],
       ),
       body: views.elementAt(selectedIndex),
