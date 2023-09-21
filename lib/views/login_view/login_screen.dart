@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/constants/app_widgets.dart';
 import 'package:lightning_food_mobile/main.dart';
@@ -24,30 +25,30 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Center(
+                Center(
                   child: Text(
                     'Login',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 20.sp,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 SizedBox(
-                  width: double.infinity,
+                  width: double.infinity.w,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
                         margin: const EdgeInsets.fromLTRB(0, 0, 0, 107),
-                        width: double.infinity,
+                        width: double.infinity.w,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
                               margin: const EdgeInsets.fromLTRB(0, 0, 0, 84),
-                              width: double.infinity,
+                              width: double.infinity.w,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -64,9 +65,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                           child: Text(
                                             'Welcome back!',
                                             style: TextStyle(
-                                              fontSize: 24,
+                                              fontSize: 24.sp,
                                               fontWeight: FontWeight.w700,
-                                              height: 1.5,
+                                              height: 1.5.h,
                                               color: AppColor.plainBlack,
                                             ),
                                           ),
@@ -74,9 +75,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                         Text(
                                           'Happy to see you again, Please log in below',
                                           style: TextStyle(
-                                            fontSize: 16,
+                                            fontSize: 16.sp,
                                             fontWeight: FontWeight.w400,
-                                            height: 1.5,
+                                            height: 1.5.h,
                                             color: AppColor.black33,
                                           ),
                                         ),
@@ -84,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: double.infinity,
+                                    width: double.infinity.w,
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
@@ -92,7 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         Container(
                                           margin: const EdgeInsets.fromLTRB(
                                               0, 0, 0, 24),
-                                          width: double.infinity,
+                                          width: double.infinity.w,
                                           child: Column(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.center,
@@ -101,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 margin:
                                                     const EdgeInsets.fromLTRB(
                                                         0, 0, 0, 12),
-                                                width: double.infinity,
+                                                width: double.infinity.w,
                                                 child: Column(
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.start,
@@ -112,10 +113,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                                       child: Text(
                                                         'Email Address',
                                                         style: TextStyle(
-                                                          fontSize: 14,
+                                                          fontSize: 14.sp,
                                                           fontWeight:
                                                               FontWeight.w400,
-                                                          height: 1.5,
+                                                          height: 1.5.h,
                                                           color:
                                                               AppColor.black2,
                                                         ),
@@ -163,7 +164,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                       ),
                                                     ),
                                                     SizedBox(
-                                                      width: double.infinity,
+                                                      width: double.infinity.w,
                                                       child: Column(
                                                         crossAxisAlignment:
                                                             CrossAxisAlignment
@@ -177,11 +178,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                                             child: Text(
                                                               'Password',
                                                               style: TextStyle(
-                                                                fontSize: 14,
+                                                                fontSize: 14.sp,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w400,
-                                                                height: 1.5,
+                                                                height: 1.5.h,
                                                                 color: AppColor
                                                                     .black2,
                                                               ),
@@ -195,9 +196,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                                                     12,
                                                                     16,
                                                                     8),
-                                                            width:
-                                                                double.infinity,
-                                                            height: 56,
+                                                            width: double
+                                                                .infinity.w,
+                                                            height: 56.h,
                                                             decoration:
                                                                 BoxDecoration(
                                                               border: Border.all(
@@ -258,8 +259,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                           style: TextButton.styleFrom(
                                             foregroundColor:
                                                 AppColor.plainBlack,
-                                            textStyle: const TextStyle(
-                                              fontSize: 14,
+                                            textStyle: TextStyle(
+                                              fontSize: 14.sp,
                                               fontWeight: FontWeight.w600,
                                               height: 1.5,
                                             ),
@@ -273,8 +274,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ),
                             AppButton(
-                              height: 50,
-                              width: double.infinity,
+                              height: 50.h,
+                              width: double.infinity.w,
                               buttonText: 'Login',
                               onTap: () {
                                 Navigator.push(
@@ -292,9 +293,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       Text.rich(
                         TextSpan(
                           style: TextStyle(
-                            fontSize: 14,
+                            fontSize: 14.sp,
                             fontWeight: FontWeight.w400,
-                            height: 1.5,
+                            height: 1.5.h,
                             color: AppColor.black2,
                           ),
                           children: [
