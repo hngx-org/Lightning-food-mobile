@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 
 class ProfilePageButton extends StatelessWidget {
@@ -19,12 +20,13 @@ class ProfilePageButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final foregroundColor = isLogOut ? AppColor.errorColor : AppColor.plainBlack;
+    final foregroundColor =
+        isLogOut ? AppColor.errorColor : AppColor.plainBlack;
     return InkWell(
       onTap: onTap,
       child: Container(
         width: MediaQuery.of(context).size.width,
-        height: 64,
+        height: 72.h,
         padding: const EdgeInsets.symmetric(
           horizontal: 8,
           vertical: 12,
@@ -44,7 +46,7 @@ class ProfilePageButton extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 leadingIcon,
-                const SizedBox(width: 8),
+                SizedBox(width: 8.w),
                 Text(
                   buttonLabel,
                   style: TextStyle(

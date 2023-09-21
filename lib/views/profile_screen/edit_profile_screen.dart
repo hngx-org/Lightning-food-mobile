@@ -97,18 +97,18 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               validator: null,
               enabled: false,
             ),
-            SizedBox(height: 50.h),
+            SizedBox(height: 48.h),
             AppButton(
               buttonColor: AppColor.primaryColor,
               buttonText: 'Save',
-              height: 60,
-              fontSize: 16,
+              height: 60.h,
+              fontSize: 16.sp,
               buttonTextColor: AppColor.white2,
               onTap: () {
                 Navigator.of(context).pop();
                 //TODO: Save to the controller
               },
-              width: MediaQuery.of(context).size.width / 1.2,
+              width: (MediaQuery.of(context).size.width),
             ),
           ],
         ),

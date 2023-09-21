@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 
 class EditProfileTextField extends StatelessWidget {
@@ -24,11 +25,11 @@ class EditProfileTextField extends StatelessWidget {
         Text(
           fieldLabel,
           style: TextStyle(
-            fontSize: 14,
+            fontSize: 16.sp,
             color: enabled ? AppColor.plainBlack : AppColor.black33,
           ),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: 8.h),
         TextFormField(
           enabled: enabled,
           validator: validator != null
@@ -38,8 +39,8 @@ class EditProfileTextField extends StatelessWidget {
               : null,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           controller: controller,
-          style: const TextStyle(
-            fontSize: 14,
+          style: TextStyle(
+            fontSize: 16.sp,
             fontWeight: FontWeight.w400,
           ),
           decoration: InputDecoration(

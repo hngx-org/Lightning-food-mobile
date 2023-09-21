@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
+import 'package:lightning_food_mobile/views/login_view/login_screen.dart';
 
 import 'profile_page_button.dart';
 import '../edit_profile_screen.dart';
@@ -17,7 +19,7 @@ class ProfileSegment2 extends StatelessWidget {
         children: [
           ProfilePageButton(
             leadingIcon: const Icon(
-              Icons.edit,
+              Iconsax.message_edit,
             ),
             buttonLabel: 'Edit Profile Information',
             buttonColor: AppColor.secondaryColor,
@@ -32,7 +34,7 @@ class ProfileSegment2 extends StatelessWidget {
           SizedBox(height: 8.h),
           ProfilePageButton(
             leadingIcon: const Icon(
-              Icons.settings_outlined,
+              Iconsax.setting_2,
             ),
             buttonLabel: 'Settings',
             buttonColor: AppColor.tetiaryColor,
@@ -41,7 +43,7 @@ class ProfileSegment2 extends StatelessWidget {
           SizedBox(height: 8.h),
           ProfilePageButton(
             leadingIcon: const Icon(
-              Icons.live_help_outlined,
+              Iconsax.message_question,
             ),
             buttonLabel: 'Help & Support',
             buttonColor: AppColor.secondaryColor,
@@ -50,21 +52,28 @@ class ProfileSegment2 extends StatelessWidget {
           SizedBox(height: 8.h),
           ProfilePageButton(
             leadingIcon: const Icon(
-              Icons.info_outline,
+              Iconsax.info_circle,
             ),
             buttonLabel: 'About',
             buttonColor: AppColor.tetiaryColor,
             onTap: () {},
           ),
-          SizedBox(height: 24.h),
+          SizedBox(height: 32.h),
           ProfilePageButton(
             leadingIcon: Icon(
-              Icons.info_outline,
-              color: Colors.red.shade800,
+              Iconsax.logout,
+              color: AppColor.errorColor,
             ),
-            buttonLabel: 'About',
+            buttonLabel: 'Logout',
             buttonColor: AppColor.secondaryColor,
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(
+                  builder: (context) => const LoginScreen(),
+                ),
+                (route) => false,
+              );
+            },
             isLogOut: true,
           ),
         ],
