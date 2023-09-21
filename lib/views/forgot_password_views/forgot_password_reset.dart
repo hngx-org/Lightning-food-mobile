@@ -116,7 +116,7 @@ class _ForgotPasswordResetState extends State<ForgotPasswordReset> {
                           width: 100,
                         ),
                         dialogText: Text(
-                          'A password reset link has been sent\nto you email',
+                          'A password reset link has been sent\nto your email',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: AppColor.black2,
