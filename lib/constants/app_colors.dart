@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-class AppColor{
+class AppColor {
   AppColor._();
 
   static Color primaryColor = Color(0xFF28289F);

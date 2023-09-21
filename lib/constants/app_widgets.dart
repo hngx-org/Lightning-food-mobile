@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 
 class AppButton extends StatelessWidget {
@@ -7,15 +8,19 @@ class AppButton extends StatelessWidget {
     required this.height,
     required this.width,
     required this.buttonText,
+    required this.buttonTextColor,
     required this.onTap,
     required this.buttonColor,
+    required this.fontSize,
   }) : super(key: key);
 
   final double height;
   final double width;
   final String buttonText;
+  final Color buttonTextColor;
   final Function()? onTap;
   final Color buttonColor;
+  final double fontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -38,8 +43,8 @@ class AppButton extends StatelessWidget {
           buttonText,
           style: TextStyle(
               fontWeight: FontWeight.w600,
-              color: AppColor.pureWhite,
-              fontSize: 16),
+              color: buttonTextColor,
+              fontSize: fontSize),
         )),
       ),
     );
@@ -70,13 +75,13 @@ class ContactListView extends StatelessWidget {
           itemCount: listNumber,
           itemBuilder: (BuildContext context, int index) {
             return Container(
-              margin: const EdgeInsets.only(bottom: 10),
+              margin: EdgeInsets.only(bottom: 10.h),
               child: index % 2 == 0
                   ? ListTile(
                       tileColor: AppColor.tetiaryColor,
                       shape: RoundedRectangleBorder(
                           side: BorderSide(
-                            width: 2,
+                            width: 2.w,
                             color: AppColor.plainBlack,
                           ),
                           borderRadius: BorderRadius.circular(8)),
@@ -94,15 +99,15 @@ class ContactListView extends StatelessWidget {
                       tileColor: AppColor.secondaryColor,
                       shape: RoundedRectangleBorder(
                           side: BorderSide(
-                            width: 2,
+                            width: 2.w,
                             color: AppColor.plainBlack,
                           ),
                           borderRadius: BorderRadius.circular(8)),
                       leading: profilePicture,
                       title: Text(
                         tileTitle,
-                        style: const TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.w600),
+                        style: TextStyle(
+                            fontSize: 14.sp, fontWeight: FontWeight.w600),
                       ),
                       onTap: onTap,
                     ),
@@ -127,11 +132,9 @@ class DialogueBox extends StatelessWidget {
     return Dialog(
       insetPadding: EdgeInsets.zero,
       child: Container(
-        height: 378,
-        width: 320,
-        decoration: BoxDecoration(
-            color: AppColor.secondaryColor,
-            borderRadius: BorderRadius.all(Radius.circular(8))),
+        height: 428,
+        width: 380,
+        decoration: BoxDecoration(color: AppColor.secondaryColor),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
