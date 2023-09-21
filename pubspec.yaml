@@ -30,7 +30,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  google_fonts: ^6.0.0
 
   flutter_screenutil: ^5.9.0
   iconsax: ^0.0.8
