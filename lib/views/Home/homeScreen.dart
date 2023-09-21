@@ -4,6 +4,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/constants/app_widgets.dart';
 import 'package:lightning_food_mobile/views/Home/home_widgets.dart';
+import 'package:lightning_food_mobile/views/send_free_lunch/send_free_lunch_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -18,7 +19,7 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 ListTile(
-                  leading: CircleAvatar(
+                  leading: const CircleAvatar(
                     backgroundImage: AssetImage('images/lady.jpeg'),
                     radius: 20,
                   ),
@@ -27,7 +28,7 @@ class HomeScreen extends StatelessWidget {
                     style:
                         TextStyle(fontSize: 15.sp, fontWeight: FontWeight.bold),
                   ),
-                  trailing: Icon(Iconsax.notification_bing5),
+                  trailing: const Icon(Iconsax.notification_bing5),
                 ),
                 SizedBox(height: 12.h),
                 Container(
@@ -62,7 +63,7 @@ class HomeScreen extends StatelessWidget {
                       //   height: 5,
                       // ),
                       Image(
-                        image: AssetImage("images/coins.png"),
+                        image: const AssetImage("images/coins.png"),
                         width: 100.w,
                       ),
 
@@ -92,7 +93,14 @@ class HomeScreen extends StatelessWidget {
                             height: 45.h,
                             width: 157.w,
                             buttonText: 'Send Free Lunch',
-                            onTap: null,
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => const SendFreeLunch(),
+                                ),
+                              );
+                            },
                             buttonColor: AppColor.pureWhite,
                             fontSize: 14.sp,
                           )
@@ -105,7 +113,7 @@ class HomeScreen extends StatelessWidget {
                   height: 22.71.h,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 10.0),
+                  padding: const EdgeInsets.only(left: 10.0),
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Text(
@@ -120,11 +128,12 @@ class HomeScreen extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * .9,
                   height: 400.h,
                   decoration: BoxDecoration(
-                      color: AppColor.tetiaryColor,
-                      borderRadius: BorderRadius.circular(18),
-                      border: Border.all(width: 1.h, color: AppColor.black33)),
+                    color: AppColor.tetiaryColor,
+                    borderRadius: BorderRadius.circular(18),
+                    border: Border.all(width: 1.h, color: AppColor.black33),
+                  ),
                   child: RecentFreeLunchView(
-                    icon: Icon(Iconsax.arrow_square_down4),
+                    icon: const Icon(Iconsax.arrow_square_down4),
                     iconColor: Colors.green,
                     containerHeight: 50.h,
                     tileTitle: 'Joy Lu sent a free lunch',

@@ -54,14 +54,15 @@ class AppButton extends StatelessWidget {
 class ContactListView extends StatelessWidget {
   const ContactListView(
       {Key? key,
-      required this.profilePicture,
+      required this.profilePath,
       required this.listNumber,
       required this.tileTitle,
       required this.onTap,
       required this.containerHeight})
       : super(key: key);
 
-  final Widget profilePicture;
+  final String profilePath;
+
   final double containerHeight;
   final int listNumber;
   final String tileTitle;
@@ -69,50 +70,68 @@ class ContactListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: containerHeight,
-      child: ListView.builder(
-          itemCount: listNumber,
-          itemBuilder: (BuildContext context, int index) {
-            return Container(
-              margin: EdgeInsets.only(bottom: 10.h),
-              child: index % 2 == 0
-                  ? ListTile(
-                      tileColor: AppColor.tetiaryColor,
-                      shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            width: 2.w,
-                            color: AppColor.plainBlack,
-                          ),
-                          borderRadius: BorderRadius.circular(8)),
-                      leading: profilePicture,
-                      title: Text(
-                        tileTitle,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      onTap: onTap,
-                    )
-                  : ListTile(
-                      tileColor: AppColor.secondaryColor,
-                      shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            width: 2.w,
-                            color: AppColor.plainBlack,
-                          ),
-                          borderRadius: BorderRadius.circular(8)),
-                      leading: profilePicture,
-                      title: Text(
-                        tileTitle,
-                        style: TextStyle(
-                            fontSize: 14.sp, fontWeight: FontWeight.w600),
-                      ),
-                      onTap: onTap,
-                    ),
-            );
-          }),
+    List<Color> color = [
+      AppColor.secondaryColor,
+      AppColor.tetiaryColor,
+    ];
+    return ListView.separated(
+      itemCount: listNumber,
+      separatorBuilder: (BuildContext context, child) {
+        return SizedBox(
+          height: 16.h,
+        );
+      },
+      itemBuilder: (BuildContext context, int index) {
+        return _listTile(
+          color[index % color.length],
+        );
+      },
+    );
+  }
+
+  Widget _listTile(Color conColor) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: containerHeight,
+        width: 382.w,
+        margin: EdgeInsets.symmetric(horizontal: 12.w),
+        decoration: BoxDecoration(
+          color: conColor,
+          border: Border.all(width: 2.h, color: Colors.black),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Row(
+          children: [
+            SizedBox(
+              width: 5.w,
+            ),
+            Container(
+              height: 55.h,
+              width: 62.w,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(color: Colors.black, width: 2.w),
+                image: DecorationImage(
+                  image: AssetImage(profilePath),
+                  fit: BoxFit.cover,
+                  filterQuality: FilterQuality.high,
+                ),
+              ),
+            ),
+            SizedBox(
+              width: 12.h,
+            ),
+            Text(
+              tileTitle,
+              style: TextStyle(
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
