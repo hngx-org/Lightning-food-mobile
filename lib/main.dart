@@ -4,7 +4,6 @@ import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/views/Home/homeScreen.dart';
 import 'package:lightning_food_mobile/views/login_view/login_screen.dart';
-import 'package:lightning_food_mobile/views/sign_up_views/sign_up_screen.dart';
 
 
 void main() {
@@ -18,10 +17,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(300, 300),
+      designSize: const Size(430, 932),
       builder: (_, child) {
         return MaterialApp(
           theme: ThemeData(
+            fontFamily: "Poppins",
             useMaterial3: true,
           ),
           debugShowCheckedModeBanner: false,
@@ -42,7 +42,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int selectedIndex = 0;
   List views = [
-    HomeScreen(),
+    const HomeScreen(),
     Container(
       color: Colors.black,
     ),

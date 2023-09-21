@@ -52,9 +52,9 @@ class _EmailConfirmationScreenState extends State<EmailConfirmationScreen> {
                 const Text("We've sent a 6 digit code to mayacox@gmail.com."),
                 const Text(
                     "The code expires shortly, so please enter it soon."),
-                SizedBox(height: 10.h),
+                SizedBox(height: 22.h),
                 const Text('Confirmation code'),
-                SizedBox(height: 5.h),
+                SizedBox(height: 4.h),
                 TextField(
                   controller: _codeController,
                   keyboardType: TextInputType.emailAddress,
@@ -69,7 +69,7 @@ class _EmailConfirmationScreenState extends State<EmailConfirmationScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 5.h),
+                SizedBox(height: 10.h),
                 Container(
                   height: 4,
                   width: double.infinity,
@@ -91,12 +91,13 @@ class _EmailConfirmationScreenState extends State<EmailConfirmationScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: 30.h),
+                SizedBox(height: 84.h),
                 AppButton(
-                  height: 50,
+                  height: 48.h,
                   width: double.infinity,
                   buttonColor: AppColor.primaryColor,
                   buttonText: 'Continue',
+                  buttonTextColor: AppColor.pureWhite,
                   onTap: () {
                     Navigator.push(
                       context,
@@ -104,9 +105,9 @@ class _EmailConfirmationScreenState extends State<EmailConfirmationScreen> {
                         builder: (context) => const Home(),
                       ),
                     );
-                  },
+                  }, fontSize: 16.sp,
                 ),
-                SizedBox(height: 20.h),
+                SizedBox(height: 107.h),
                 const Center(
                   child: Text("Can't find your code? Check your spam folder!"),
                 ),
