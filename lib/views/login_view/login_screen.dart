@@ -2,15 +2,17 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/constants/app_widgets.dart';
+import 'package:lightning_food_mobile/main.dart';
+import 'package:lightning_food_mobile/views/sign_up_views/sign_up_screen.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  _LoginState createState() => _LoginState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginScreenState extends State<LoginScreen> {
   bool _isPasswordVisible = false;
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 SizedBox(
                   width: double.infinity,
                   child: Column(
@@ -271,11 +273,16 @@ class _LoginState extends State<Login> {
                               ),
                             ),
                             AppButton(
-                              height: 48,
+                              height: 50,
                               width: double.infinity,
                               buttonText: 'Login',
                               onTap: () {
-                                // Add the function you want to execute when the button is pressed
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const Home(),
+                                  ),
+                                );
                               },
                               buttonColor: AppColor.primaryColor,
                             ),
@@ -298,7 +305,13 @@ class _LoginState extends State<Login> {
                               text: 'Create account',
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () {
-                                  // Add the function you want to execute when "Create account" is pressed
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const SignUpScreen(),
+                                    ),
+                                  );
                                 },
                             ),
                           ],
