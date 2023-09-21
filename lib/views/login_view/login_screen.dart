@@ -5,6 +5,7 @@ import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/constants/app_widgets.dart';
 import 'package:lightning_food_mobile/main.dart';
 import 'package:lightning_food_mobile/views/sign_up_views/sign_up_screen.dart';
+import '../forgot_password_views/forgot_password_reset.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -254,7 +255,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                         ),
                                         TextButton(
                                           onPressed: () {
-                                            // Add the function you want to execute when the text is pressed
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) => const ForgotPasswordReset(), // Replace 'YourNewScreen' with the actual screen widget
+                                              ),
+                                            );
                                           },
                                           style: TextButton.styleFrom(
                                             foregroundColor:
