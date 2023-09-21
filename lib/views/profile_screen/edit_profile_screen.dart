@@ -28,6 +28,15 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   );
 
   @override
+  void dispose() {
+    nameController.dispose();
+    displayNameController.dispose();
+    mailController.dispose();
+    idController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomProfileAppBar(
