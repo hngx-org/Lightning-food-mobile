@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 
 import '../../constants/app_widgets.dart';
@@ -39,6 +40,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.bgColor,
       appBar: const CustomProfileAppBar(
         title: 'Edit Profile',
       ).build(context),
@@ -52,7 +54,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 //TODO: Edit the user image
               },
             ),
-            const SizedBox(height: 35),
+            SizedBox(height: 15.h),
             EditProfileTextField(
               controller: nameController,
               fieldLabel: 'Name',
@@ -64,7 +66,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 }
               },
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 8.h),
             EditProfileTextField(
               controller: displayNameController,
               fieldLabel: 'Display Name',
@@ -76,7 +78,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 }
               },
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 8.h),
             EditProfileTextField(
               controller: mailController,
               fieldLabel: 'Email',
@@ -88,14 +90,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 }
               },
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 8.h),
             EditProfileTextField(
               controller: idController,
               fieldLabel: 'Staff Id',
               validator: null,
               enabled: false,
             ),
-            const SizedBox(height: 60),
+            SizedBox(height: 32.h),
             AppButton(
               buttonColor: AppColor.primaryColor,
               buttonText: 'Save',

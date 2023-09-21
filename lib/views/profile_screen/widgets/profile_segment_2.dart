@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 
 import 'profile_page_button.dart';
@@ -28,7 +29,7 @@ class ProfileSegment2 extends StatelessWidget {
               );
             },
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 5.h),
           ProfilePageButton(
             leadingIcon: const Icon(
               Icons.settings_outlined,
@@ -37,7 +38,7 @@ class ProfileSegment2 extends StatelessWidget {
             buttonColor: AppColor.tetiaryColor,
             onTap: () {},
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 5.h),
           ProfilePageButton(
             leadingIcon: const Icon(
               Icons.live_help_outlined,
@@ -46,7 +47,7 @@ class ProfileSegment2 extends StatelessWidget {
             buttonColor: AppColor.secondaryColor,
             onTap: () {},
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 5.h),
           ProfilePageButton(
             leadingIcon: const Icon(
               Icons.info_outline,
@@ -55,7 +56,7 @@ class ProfileSegment2 extends StatelessWidget {
             buttonColor: AppColor.tetiaryColor,
             onTap: () {},
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16.h),
           ProfilePageButton(
             leadingIcon: Icon(
               Icons.info_outline,

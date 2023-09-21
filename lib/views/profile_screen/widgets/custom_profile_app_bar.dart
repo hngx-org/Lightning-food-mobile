@@ -13,7 +13,7 @@ class CustomProfileAppBar extends StatelessWidget {
   AppBar build(BuildContext context) {
     return AppBar(
       // centerTitle: true,
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: AppColor.bgColor,
       elevation: 0,
       title: Text(
         title,

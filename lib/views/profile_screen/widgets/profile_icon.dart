@@ -15,8 +15,8 @@ class ProfileIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 75,
-      height: 75,
+      width: 80,
+      height: 80,
       // padding: const EdgeInsets.all(2),
       decoration: BoxDecoration(
         color: AppColor.plainBlack,
@@ -24,11 +24,11 @@ class ProfileIcon extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          const Padding(
+          Padding(
             padding: const EdgeInsets.all(2),
             child: Center(
               child: CircleAvatar(
-                radius: 65,
+                radius: 75,
                 //TODO: backgroundImage: Put an image here
               ),
             ),
