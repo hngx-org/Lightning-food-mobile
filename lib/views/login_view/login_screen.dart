@@ -262,7 +262,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             textStyle: TextStyle(
                                               fontSize: 14.sp,
                                               fontWeight: FontWeight.w600,
-                                              height: 1.5,
+                                              height: 1.5.h,
                                             ),
                                           ),
                                           child: const Text('Forgot Password?'),
@@ -274,8 +274,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ),
                             AppButton(
-                              height: 50.h,
-                              width: double.infinity.w,
+                              height: 48.h,
+                              width: 382.w,
                               buttonText: 'Login',
                               onTap: () {
                                 Navigator.push(
@@ -286,6 +286,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 );
                               },
                               buttonColor: AppColor.primaryColor,
+                              buttonTextColor: AppColor.pureWhite, fontSize: 16.sp,
                             ),
                           ],
                         ),

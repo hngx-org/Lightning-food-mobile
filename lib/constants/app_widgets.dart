@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 
 class AppButton extends StatelessWidget {
@@ -10,6 +11,7 @@ class AppButton extends StatelessWidget {
     required this.buttonTextColor,
     required this.onTap,
     required this.buttonColor,
+    required this.fontSize,
   }) : super(key: key);
 
   final double height;
@@ -18,6 +20,7 @@ class AppButton extends StatelessWidget {
   final Color buttonTextColor;
   final Function()? onTap;
   final Color buttonColor;
+  final double fontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +44,7 @@ class AppButton extends StatelessWidget {
           style: TextStyle(
               fontWeight: FontWeight.w600,
               color: buttonTextColor,
-              fontSize: 16),
+              fontSize: fontSize),
         )),
       ),
     );
@@ -72,13 +75,13 @@ class ContactListView extends StatelessWidget {
           itemCount: listNumber,
           itemBuilder: (BuildContext context, int index) {
             return Container(
-              margin: const EdgeInsets.only(bottom: 10),
+              margin: EdgeInsets.only(bottom: 10.h),
               child: index % 2 == 0
                   ? ListTile(
                       tileColor: AppColor.tetiaryColor,
                       shape: RoundedRectangleBorder(
                           side: BorderSide(
-                            width: 2,
+                            width: 2.w,
                             color: AppColor.plainBlack,
                           ),
                           borderRadius: BorderRadius.circular(8)),
@@ -96,15 +99,15 @@ class ContactListView extends StatelessWidget {
                       tileColor: AppColor.secondaryColor,
                       shape: RoundedRectangleBorder(
                           side: BorderSide(
-                            width: 2,
+                            width: 2.w,
                             color: AppColor.plainBlack,
                           ),
                           borderRadius: BorderRadius.circular(8)),
                       leading: profilePicture,
                       title: Text(
                         tileTitle,
-                        style: const TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.w600),
+                        style: TextStyle(
+                            fontSize: 14.sp, fontWeight: FontWeight.w600),
                       ),
                       onTap: onTap,
                     ),

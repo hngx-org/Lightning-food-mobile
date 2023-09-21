@@ -29,10 +29,10 @@ class HomeScreen extends StatelessWidget {
                   ),
                   trailing: Icon(Iconsax.notification_bing5),
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12.h),
                 Container(
-                  width: MediaQuery.of(context).size.width * .9,
-                  height: 280,
+                  width: 382.w,
+                  height: 243.h,
                   decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
@@ -47,13 +47,13 @@ class HomeScreen extends StatelessWidget {
                     //crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SizedBox(
-                        height: 8.h,
+                        height: 16.h,
                       ),
                       Text("You have",
                           style: TextStyle(
                               fontSize: 15.sp, fontWeight: FontWeight.bold)),
-                      const SizedBox(
-                        height: 10,
+                      SizedBox(
+                        height: 10.h,
                       ),
                       Text("7",
                           style: TextStyle(
@@ -63,36 +63,38 @@ class HomeScreen extends StatelessWidget {
                       // ),
                       Image(
                         image: AssetImage("images/coins.png"),
-                        width: 100,
+                        width: 100.w,
                       ),
 
                       const Text("Free Lunches",
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold)),
                       SizedBox(
-                        height: 10.h,
+                        height: 8.h,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           AppButton(
                             buttonTextColor: AppColor.pureWhite,
-                            height: 50,
-                            width: 150,
+                            height: 45.h,
+                            width: 157.w,
                             buttonText: 'Redeem Free Lunch',
                             onTap: null,
                             buttonColor: AppColor.primaryColor,
+                            fontSize: 14.sp,
                           ),
                           SizedBox(
-                            width: 8.h,
+                            width: 24.w,
                           ),
                           AppButton(
                             buttonTextColor: AppColor.primaryColor,
-                            height: 50,
-                            width: 150,
+                            height: 45.h,
+                            width: 157.w,
                             buttonText: 'Send Free Lunch',
                             onTap: null,
                             buttonColor: AppColor.pureWhite,
+                            fontSize: 14.sp,
                           )
                         ],
                       ),
@@ -100,7 +102,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 5.h,
+                  height: 22.71.h,
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 10.0),
@@ -113,10 +115,10 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 5.h),
+                SizedBox(height: 12.h),
                 Container(
                   width: MediaQuery.of(context).size.width * .9,
-                  height: 400,
+                  height: 400.h,
                   decoration: BoxDecoration(
                       color: AppColor.tetiaryColor,
                       borderRadius: BorderRadius.circular(18),
