@@ -29,7 +29,7 @@ class ProfileSegment2 extends StatelessWidget {
               );
             },
           ),
-          SizedBox(height: 5.h),
+          SizedBox(height: 8.h),
           ProfilePageButton(
             leadingIcon: const Icon(
               Icons.settings_outlined,
@@ -38,7 +38,7 @@ class ProfileSegment2 extends StatelessWidget {
             buttonColor: AppColor.tetiaryColor,
             onTap: () {},
           ),
-          SizedBox(height: 5.h),
+          SizedBox(height: 8.h),
           ProfilePageButton(
             leadingIcon: const Icon(
               Icons.live_help_outlined,
@@ -47,7 +47,7 @@ class ProfileSegment2 extends StatelessWidget {
             buttonColor: AppColor.secondaryColor,
             onTap: () {},
           ),
-          SizedBox(height: 5.h),
+          SizedBox(height: 8.h),
           ProfilePageButton(
             leadingIcon: const Icon(
               Icons.info_outline,
@@ -56,7 +56,7 @@ class ProfileSegment2 extends StatelessWidget {
             buttonColor: AppColor.tetiaryColor,
             onTap: () {},
           ),
-          SizedBox(height: 16.h),
+          SizedBox(height: 24.h),
           ProfilePageButton(
             leadingIcon: Icon(
               Icons.info_outline,

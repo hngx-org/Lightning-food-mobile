@@ -21,7 +21,7 @@ class ProfileViewScreen extends StatelessWidget {
         child: Column(
           children: [
             const ProfileSegment(),
-            SizedBox(height: 12.h),
+            SizedBox(height: 26.h),
             const ProfileSegment2(),
           ],
         ),

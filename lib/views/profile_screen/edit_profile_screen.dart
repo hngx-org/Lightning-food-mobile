@@ -54,7 +54,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 //TODO: Edit the user image
               },
             ),
-            SizedBox(height: 15.h),
+            SizedBox(height: 26.h),
             EditProfileTextField(
               controller: nameController,
               fieldLabel: 'Name',
@@ -97,11 +97,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               validator: null,
               enabled: false,
             ),
-            SizedBox(height: 32.h),
+            SizedBox(height: 50.h),
             AppButton(
               buttonColor: AppColor.primaryColor,
               buttonText: 'Save',
               height: 60,
+              fontSize: 16,
+              buttonTextColor: AppColor.white2,
               onTap: () {
                 Navigator.of(context).pop();
                 //TODO: Save to the controller
