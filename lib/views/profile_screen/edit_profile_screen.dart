@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:lightning_food_mobile/constants/app_colors.dart';
 
+import '../../constants/app_widgets.dart';
 import 'widgets/edit_profile_text_field.dart';
 import 'widgets/profile_icon.dart';
 import 'widgets/custom_profile_app_bar.dart';
@@ -84,7 +86,17 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               validator: null,
               enabled: false,
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 60),
+            AppButton(
+              buttonColor: AppColor.primaryColor,
+              buttonText: 'Save',
+              height: 60,
+              onTap: () {
+                Navigator.of(context).pop();
+                //TODO: Save to the controller
+              },
+              width: MediaQuery.of(context).size.width / 1.2,
+            ),
           ],
         ),
       ),

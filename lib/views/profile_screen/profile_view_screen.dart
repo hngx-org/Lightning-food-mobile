@@ -10,16 +10,15 @@ class ProfileViewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomProfileAppBar(
-        
+      appBar: const CustomProfileAppBar(
         title: 'Profile',
       ).build(context),
       body: SingleChildScrollView(
-          padding: const EdgeInsets.all(10).copyWith(bottom: 16),
-        child: Column(
+        padding: const EdgeInsets.all(10).copyWith(bottom: 16),
+        child: const Column(
           children: [
             ProfileSegment(),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             ProfileSegment2(),
           ],
         ),

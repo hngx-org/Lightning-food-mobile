@@ -41,12 +41,11 @@ class ProfileIcon extends StatelessWidget {
                     onTap: onTap,
                     child: CircleAvatar(
                       radius: 14,
-                      //TODO: Remove this color later
-                      backgroundColor: Colors.purple.shade900,
-                      //TODO: Change the icon
-                      child: const Icon(
+                      backgroundColor: AppColor.primaryColor,
+                      child: Icon(
                         Iconsax.edit_2,
                         size: 15,
+                        color: AppColor.white2,
                       ),
                     ),
                   ),
