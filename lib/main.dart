@@ -4,6 +4,8 @@ import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/views/sign_up_views/sign_up_screen.dart';
 
+import 'views/profile_screen/profile_view_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
