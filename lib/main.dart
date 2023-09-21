@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
+import 'package:lightning_food_mobile/views/Home/homeScreen.dart';
 import 'package:lightning_food_mobile/views/login_view/login_screen.dart';
 import 'package:lightning_food_mobile/views/sign_up_views/sign_up_screen.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +24,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             useMaterial3: true,
           ),
+          debugShowCheckedModeBanner: false,
           home: const LoginScreen(),
         );
       },
@@ -39,9 +42,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int selectedIndex = 0;
   List views = [
-    Container(
-      color: Colors.green,
-    ),
+    HomeScreen(),
     Container(
       color: Colors.black,
     ),
