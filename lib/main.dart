@@ -5,7 +5,6 @@ import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/views/Home/homeScreen.dart';
 import 'package:lightning_food_mobile/views/login_view/login_screen.dart';
 
-
 import 'views/profile_screen/profile_view_screen.dart';
 
 void main() {
@@ -24,7 +23,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           theme: ThemeData(
             fontFamily: "Poppins",
-            useMaterial3: true,
+            // useMaterial3: true,
           ),
           debugShowCheckedModeBanner: false,
           home: const LoginScreen(),
