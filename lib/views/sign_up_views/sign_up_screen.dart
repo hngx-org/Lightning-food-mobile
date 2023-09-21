@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/constants/app_widgets.dart';
+import 'package:lightning_food_mobile/views/login_view/login_screen.dart';
 import 'package:lightning_food_mobile/views/sign_up_views/email_confirmation_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -30,27 +31,27 @@ class _SignUpScreenState extends State<SignUpScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Center(
+                Center(
                   child: Text(
                     'Register',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 20.sp,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
                 SizedBox(height: 5.h),
-                const Text(
+                Text(
                   'Welcome on board!',
                   style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 24.sp,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
                 SizedBox(height: 10.h),
-                const Text(
-                  "Creat an account to enjoy the lightening employees's app.",
-                  style: TextStyle(fontSize: 16),
+                Text(
+                  "Create an account to enjoy the lightening employees's app.",
+                  style: TextStyle(fontSize: 16.sp),
                 ),
                 SizedBox(height: 10.h),
                 Text(
@@ -71,15 +72,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 10,
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 16.w,
+                      vertical: 10.h,
                     ),
                   ),
                 ),
                 SizedBox(height: 5.h),
                 Container(
-                  height: 4,
+                  height: 4.h,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
@@ -98,12 +99,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: 30.h),
+                SizedBox(height: 84.h),
                 AppButton(
-                  height: 50,
+                  height: 50.h,
                   buttonColor: AppColor.primaryColor,
                   width: double.infinity,
                   buttonText: 'Continue',
+                  fontSize: 16.sp,
                   onTap: () {
                     Navigator.push(
                       context,
@@ -111,16 +113,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         builder: (context) => const EmailConfirmationScreen(),
                       ),
                     );
-                  },
+                  }, buttonTextColor: AppColor.pureWhite,
                 ),
-                SizedBox(height: 20.h),
+                SizedBox(height: 107.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text('Have an account already?'),
                     TextButton(
                       onPressed: () {
-                        // TODO Add navigation to login screen
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginScreen(),
+                          ),
+                        );
                       },
                       child: const Text(
                         'Log in',
