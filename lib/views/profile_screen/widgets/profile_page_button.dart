@@ -51,6 +51,7 @@ class ProfilePageButton extends StatelessWidget {
                   buttonLabel,
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
+                    fontSize: 16.sp,
                     color: foregroundColor,
                   ),
                 ),

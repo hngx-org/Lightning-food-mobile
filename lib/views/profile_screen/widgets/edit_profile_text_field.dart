@@ -9,16 +9,18 @@ class EditProfileTextField extends StatelessWidget {
     required this.fieldLabel,
     required this.validator,
     this.enabled = true,
+    this.hint,
   });
 
   final TextEditingController controller;
   final String fieldLabel;
   final String? Function(String?)? validator;
   final bool enabled;
+  final String? hint;
 
   @override
   Widget build(BuildContext context) {
-    final hintText = controller.text;
+    final hintText = hint ?? controller.text;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

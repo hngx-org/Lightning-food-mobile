@@ -27,6 +27,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   TextEditingController idController = TextEditingController(
     text: profileData['id'],
   );
+  TextEditingController organizationController =
+      TextEditingController(text: profileData['id']);
 
   @override
   void dispose() {
@@ -34,6 +36,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     displayNameController.dispose();
     mailController.dispose();
     idController.dispose();
+    organizationController.dispose();
     super.dispose();
   }
 
@@ -66,7 +69,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 }
               },
             ),
-            SizedBox(height: 8.h),
+            SizedBox(height: 10.h),
             EditProfileTextField(
               controller: displayNameController,
               fieldLabel: 'Display Name',
@@ -78,7 +81,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 }
               },
             ),
-            SizedBox(height: 8.h),
+            SizedBox(height: 10.h),
             EditProfileTextField(
               controller: mailController,
               fieldLabel: 'Email',
@@ -90,7 +93,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 }
               },
             ),
-            SizedBox(height: 8.h),
+            SizedBox(height: 10.h),
+            EditProfileTextField(
+              controller: organizationController,
+              fieldLabel: 'Organization Name',
+              validator: null,
+              enabled: false,
+            ),
+            SizedBox(height: 10.h),
             EditProfileTextField(
               controller: idController,
               fieldLabel: 'Staff Id',
