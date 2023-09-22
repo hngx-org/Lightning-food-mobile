@@ -5,6 +5,7 @@ import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/constants/app_widgets.dart';
 import 'package:lightning_food_mobile/views/Home/home_widgets.dart';
 import 'package:lightning_food_mobile/views/notification_screen/notifcation_screen.dart';
+import 'package:lightning_food_mobile/views/redeem_free_lunch/redeemGreen.dart';
 import 'package:lightning_food_mobile/views/send_free_lunch/send_free_lunch_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -87,7 +88,13 @@ class HomeScreen extends StatelessWidget {
                             height: 45.h,
                             width: 157.w,
                             buttonText: 'Redeem Free Lunch',
-                            onTap: null,
+                            onTap: (){
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (_) => RedeemScreen()
+                                )
+                              );
+                            },
                             buttonColor: AppColor.primaryColor,
                             fontSize: 14.sp,
                           ),
