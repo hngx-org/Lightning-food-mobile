@@ -23,10 +23,11 @@ class _ForgotPasswordResetState extends State<ForgotPasswordReset> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
-            }, icon: const Icon(Icons.arrow_back_ios_new)),
+            }, icon:  Icon(Icons.arrow_back_ios_new, color: AppColor.black2,)),
         centerTitle: true,
         title: Text(
           'Forgot Password',
@@ -99,33 +100,31 @@ class _ForgotPasswordResetState extends State<ForgotPasswordReset> {
               width: 382.w,
               buttonText: 'Reset Password',
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DialogueBox(
-                      dialogButton: AppButton(
-                        buttonColor: AppColor.primaryColor,
-                        height: 48.h,
-                        width: 382.w,
-                        buttonText: 'Continue',
-                        onTap: () {}, buttonTextColor: AppColor.pureWhite, fontSize: 16.sp,
-                      ),
-                      dialogIcon: Image.asset(
-                        'images/tick_circle.png',
-                        height: 100,
-                        width: 100,
-                      ),
-                      dialogText: Text(
-                        'A password reset link has been sent\nto your email',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: AppColor.black2,
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                  ),
-                );
+               showDialog(context: context,
+                   builder: (_){
+                 return DialogueBox(
+                   dialogButton: AppButton(
+                     buttonColor: AppColor.primaryColor,
+                     height: 48.h,
+                     width: 382.w,
+                     buttonText: 'Continue',
+                     onTap: () {}, buttonTextColor: AppColor.pureWhite, fontSize: 16.sp,
+                   ),
+                   dialogIcon: Image.asset(
+                     'images/tick_circle.png',
+                     height: 100,
+                     width: 100,
+                   ),
+                   dialogText: Text(
+                     'A password reset link has been sent\nto your email',
+                     textAlign: TextAlign.center,
+                     style: TextStyle(
+                         color: AppColor.black2,
+                         fontSize: 14.sp,
+                         fontWeight: FontWeight.w600),
+                   ),
+                 );
+                   });
               },
               buttonColor: AppColor.primaryColor,
               buttonTextColor: AppColor.pureWhite, fontSize: 16,),
