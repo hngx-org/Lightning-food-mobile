@@ -31,7 +31,9 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
                   child: const Icon(Iconsax.arrow_left),
                 ),
                 SizedBox(
@@ -101,7 +103,9 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
                     width: 383.w,
                     buttonText: 'Done',
                     buttonTextColor: Colors.white,
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
                     buttonColor: AppColor.primaryColor,
                     fontSize: 14.sp),
               ],
