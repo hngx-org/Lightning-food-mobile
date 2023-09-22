@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/views/login_view/login_screen.dart';
-// import 'package:lightning_food_mobile/views/profile_screen/staff_invite_screen/staff_invite_screen.dart';
+import 'package:lightning_food_mobile/views/profile_screen/staff_invite_screen/staff_invite_screen.dart';
 
 import 'profile_page_button.dart';
 import '../edit_profile_screen.dart';
@@ -50,11 +50,11 @@ class _ProfileSegment2State extends State<ProfileSegment2> {
                       buttonLabel: 'Invite User',
                       buttonColor: AppColor.secondaryColor,
                       onTap: () {
-                        // Navigator.of(context).push(
-                        //   MaterialPageRoute(
-                        //     builder: (context) => const StaffInviteScreen(),
-                        //   ),
-                        // );
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const StaffInviteScreen(),
+                          ),
+                        );
                       },
                     ),
                   ],
