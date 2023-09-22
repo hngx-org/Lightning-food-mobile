@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
+import 'package:lightning_food_mobile/views/login_view/login_screen.dart';
 
 import '../../../constants/app_widgets.dart';
 import '../widgets/text_field.dart';
@@ -30,12 +31,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   void _showSuccess() {
     setState(() {
       _showSuccessDialog = true;
-    });
-  }
-
-  void _hideSuccess() {
-    setState(() {
-      _showSuccessDialog = false;
     });
   }
 
@@ -139,11 +134,11 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             DialogueBox(
               dialogButton: AppButton(
                 buttonColor: AppColor.primaryColor,
-                height: 60.h,
-                width: 370.w,
+                height: 48.h,
+                width: 322.w,
                 buttonText: 'Continue',
                 onTap: () {
-                  _hideSuccess();
+                  Navigator.push(context, MaterialPageRoute(builder: (_)=>LoginScreen()));
                 },
                 buttonTextColor: AppColor.pureWhite,
                 fontSize: 16.sp,

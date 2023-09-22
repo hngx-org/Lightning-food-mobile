@@ -162,21 +162,24 @@ class DialogueBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.r)),
       insetPadding: EdgeInsets.zero,
       child: Container(
-        height: 428,
-        width: 380,
-        decoration: BoxDecoration(color: AppColor.secondaryColor),
+        height: 428.h,
+        width: 380.w,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20.r),
+            color: AppColor.secondaryColor),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             dialogIcon,
-            const SizedBox(
-              height: 32,
+            SizedBox(
+              height: 32.h,
             ),
             dialogText,
-            const SizedBox(
-              height: 64,
+            SizedBox(
+              height: 64.h,
             ),
             dialogButton
           ],

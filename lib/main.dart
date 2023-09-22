@@ -4,6 +4,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/views/Home/homeScreen.dart';
 import 'package:lightning_food_mobile/views/login_view/login_screen.dart';
+import 'package:lightning_food_mobile/views/send_free_lunch/send_free_lunch_screen.dart';
 
 import 'views/profile_screen/profile_view_screen.dart';
 
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           theme: ThemeData(
+            scaffoldBackgroundColor: AppColor.bgColor,
             fontFamily: "Poppins",
             // useMaterial3: true,
           ),
@@ -44,9 +46,7 @@ class _HomeState extends State<Home> {
   int selectedIndex = 0;
   List views = [
     const HomeScreen(),
-    Container(
-      color: Colors.black,
-    ),
+    SendFreeLunch(),
     Container(
       color: Colors.yellow,
     ),
