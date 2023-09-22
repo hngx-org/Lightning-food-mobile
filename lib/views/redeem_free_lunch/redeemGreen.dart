@@ -1,14 +1,34 @@
 // ignore_for_file: sized_box_for_whitespace, deprecated_member_use, non_constant_identifier_names
 
+import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/constants/app_widgets.dart';
 import 'package:lightning_food_mobile/views/redeem_free_lunch/cashGreen.dart';
+import 'package:lightning_food_mobile/views/signup_successful/reusable_confetti.dart';
 
-class RedeemScreen extends StatelessWidget {
+class RedeemScreen extends StatefulWidget {
   const RedeemScreen({super.key});
+
+  @override
+  State<RedeemScreen> createState() => _RedeemScreenState();
+}
+
+class _RedeemScreenState extends State<RedeemScreen> {
+  final dynamic confettiController = ConfettiController();
+  @override
+  void initState() {
+    super.initState();
+    confettiController.play();
+  }
+
+  @override
+  void dispose() {
+    confettiController.dispose();
+    super.dispose();
+  }
 
   Widget SizedBoxH(double h) {
     return SizedBox(
@@ -23,6 +43,7 @@ class RedeemScreen extends StatelessWidget {
         child: Column(
           children: [
             // Left Arrow
+            MyConfetti(controller: confettiController),
             Container(
               alignment: const Alignment(-1.0, -1.0),
               child: IconButton(
@@ -41,15 +62,21 @@ class RedeemScreen extends StatelessWidget {
               width: 382,
               height: 60,
               child: Text(
-                'Joy Lu sent you a free lunch with\n a note',
+                'Joy Lu sent you a free lunch with a\nnote',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 20.sp,
                   fontWeight: FontWeight.w600,
-                  height: 1,
+                  height: 1.2,
                 ),
               ),
+            ),
+            SizedBoxH(4),
+            Image.asset(
+              height: 40.h,
+              width: 40.w,
+              'images/celebrate_icon.png',
             ),
             //
             SizedBoxH(15.0),
