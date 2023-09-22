@@ -52,7 +52,7 @@ class AppButton extends StatelessWidget {
 }
 
 class ContactListView extends StatelessWidget {
-  ContactListView(
+  const ContactListView(
       {Key? key,
       required this.profilePath,
       required this.listNumber,
@@ -60,11 +60,13 @@ class ContactListView extends StatelessWidget {
       required this.onTap,
       required this.containerHeight,
       this.time,
+      this.physics,
       this.icon})
       : super(key: key);
 
   final String profilePath;
   final String? time;
+  final dynamic physics;
   final IconData? icon;
   final double containerHeight;
   final int listNumber;
@@ -79,6 +81,8 @@ class ContactListView extends StatelessWidget {
     ];
     return ListView.separated(
       itemCount: listNumber,
+      physics: physics,
+      shrinkWrap: true,
       separatorBuilder: (BuildContext context, child) {
         return SizedBox(
           height: 16.h,
@@ -132,8 +136,8 @@ class ContactListView extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            Spacer(),
-            Text(time??''),
+            const Spacer(),
+            Text(time ?? ''),
             SizedBox(
               width: 13.w,
             ),

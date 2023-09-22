@@ -31,8 +31,10 @@ class HomeScreen extends StatelessWidget {
                   ),
                   trailing: IconButton(
                       onPressed: () {
-                        Navigator.push(context,MaterialPageRoute(
-                            builder: (_) => NotificationScreen()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => const NotificationScreen()));
                       },
                       icon: const Icon(Iconsax.notification_bing5)),
                 ),

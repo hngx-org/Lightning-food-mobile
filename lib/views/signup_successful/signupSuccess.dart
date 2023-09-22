@@ -51,7 +51,7 @@ class _SignUpSuccessfulPageState extends State<SignUpSuccessfulPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(
+                    SizedBox(
                       width: 318.w,
                       height: 180.h,
                       child: Column(

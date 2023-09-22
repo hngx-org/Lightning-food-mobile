@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
+import 'package:lightning_food_mobile/views/send_free_lunch/choose_lunch_screen.dart';
 
 import '../../constants/app_widgets.dart';
 
@@ -70,7 +71,14 @@ class SendFreeLunch extends StatelessWidget {
                   tileTitle: 'Joy Lu',
                   containerHeight: 68.h,
                   listNumber: 20,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const ChooseLunchScreen(),
+                      ),
+                    );
+                  },
                   profilePath: 'images/lady.jpeg',
                 ),
               ),
