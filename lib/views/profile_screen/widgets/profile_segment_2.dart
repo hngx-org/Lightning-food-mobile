@@ -19,9 +19,9 @@ class ProfileSegment2 extends StatefulWidget {
 }
 
 class _ProfileSegment2State extends State<ProfileSegment2> {
-  bool isAdmin = false;
   @override
   Widget build(BuildContext context) {
+    bool isAdmin = true;
     return SizedBox(
       child: Column(
         children: [
