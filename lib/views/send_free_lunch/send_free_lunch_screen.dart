@@ -68,6 +68,7 @@ class SendFreeLunch extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: ContactListView(
+                  iconImage: false,
                   tileTitle: 'Joy Lu',
                   containerHeight: 68.h,
                   listNumber: 20,
