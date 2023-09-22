@@ -94,7 +94,7 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
                 ),
                 _textFieldTile(
                     text: 'Number of lunch you want to redeem',
-                    textEditingController: accountNumberController),
+                    textEditingController: numberOfLunchController),
                 SizedBox(
                   height: 112.h,
                 ),

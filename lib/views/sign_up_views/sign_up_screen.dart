@@ -51,7 +51,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
               SizedBox(height: 16.h),
-              Text(
+              const Text(
                 "Create an account to enjoy the lightening employees's app.",
                 style: TextStyle(fontSize: 16),
               ),

@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
   int selectedIndex = 0;
   List views = [
     const HomeScreen(),
-    SendFreeLunch(),
+    const SendFreeLunch(),
     Container(
       color: Colors.yellow,
     ),
