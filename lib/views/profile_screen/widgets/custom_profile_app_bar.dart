@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 
 class CustomProfileAppBar extends StatelessWidget {
@@ -12,7 +13,7 @@ class CustomProfileAppBar extends StatelessWidget {
   @override
   AppBar build(BuildContext context) {
     return AppBar(
-      // centerTitle: true,
+      centerTitle: true,
       backgroundColor: AppColor.bgColor,
       elevation: 0,
       title: Text(
@@ -23,13 +24,13 @@ class CustomProfileAppBar extends StatelessWidget {
           fontWeight: FontWeight.w600,
         ),
       ),
-      // leading: IconButton(
-      //   onPressed: () {
-      //     Navigator.of(context).pop();
-      //   },
-      //   icon: const Icon(Icons.arrow_back_ios_new_rounded),
-      //   color: AppColor.plainBlack,
-      // ),
+      leading: IconButton(
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+        icon: const Icon(Iconsax.arrow_left),
+        color: AppColor.plainBlack,
+      ),
     );
   }
 }

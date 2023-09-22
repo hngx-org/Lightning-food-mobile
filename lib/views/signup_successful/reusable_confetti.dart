@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 
 class MyConfetti extends StatelessWidget {
-  MyConfetti({super.key, required this.controller});
+  const MyConfetti({super.key, required this.controller});
 
   final dynamic controller;
 

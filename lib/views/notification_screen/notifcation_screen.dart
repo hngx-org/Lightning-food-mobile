@@ -10,51 +10,52 @@ class NotificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.bgColor,
+      appBar: AppBar(
+        backgroundColor: AppColor.bgColor,
+        centerTitle: true,
+        elevation: 0.0,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: const Icon(
+            Iconsax.arrow_left,
+            color: Colors.black,
+          ),
+        ),
+        title: Text(
+          'Notification',
+          style: TextStyle(
+            fontSize: 20.sp,
+            color: Colors.black,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // SizedBox(
-            //   height: 66.h,
-            // ),
-            Container(
-              margin: EdgeInsets.only(top: 66.h),
-              child: Row(
-                children: [
-                  IconButton(
-                      onPressed:(){Navigator.pop(context);},
-                      icon: Icon(Iconsax.arrow_left)),
-                  SizedBox(
-                    width: 108.w,
-                  ),
-                  Text(
-                    "Notification",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 20.sp,
-                        color: AppColor.black2),
-                  ),
-                  SizedBox(
-                    width: 128.w,
-                  )
-                ],
-              ),
-            ),
-            SizedBox(height: 27.h),
-            Container(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 10.h),
+              Container(
                 margin: EdgeInsets.only(left: 24.w),
                 child: Text(
                   "New",
                   style:
                       TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
-                )),
-            Expanded(
-              flex: 1,
-              child: Padding(
+                ),
+              ),
+              SizedBox(
+                height: 12.h,
+              ),
+              Padding(
                 padding: EdgeInsets.only(left: 8.w),
                 child: ContactListView(
                     profilePath: "images/lady.jpeg",
+                    physics: const NeverScrollableScrollPhysics(),
                     listNumber: 1,
                     tileTitle: "Joy Lu sent a free lunch",
                     time: "1h",
@@ -62,23 +63,27 @@ class NotificationScreen extends StatelessWidget {
                     onTap: () {},
                     containerHeight: 64.h),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 24.w),
-              child: Text(
-                "Older",
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w500,
+              SizedBox(
+                height: 20.h,
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 24.w),
+                child: Text(
+                  "Older",
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
-            ),
-            Expanded(
-              flex: 5,
-              child: Padding(
+              SizedBox(
+                height: 15.h,
+              ),
+              Padding(
                 padding: EdgeInsets.only(left: 8.w),
                 child: ContactListView(
                     profilePath: "images/lady.jpeg",
+                    physics: const NeverScrollableScrollPhysics(),
                     listNumber: 5,
                     tileTitle: "Joy Lu sent a free lunch",
                     time: "1h",
@@ -86,8 +91,8 @@ class NotificationScreen extends StatelessWidget {
                     onTap: () {},
                     containerHeight: 64.h),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

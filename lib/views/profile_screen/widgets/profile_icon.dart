@@ -24,12 +24,12 @@ class ProfileIcon extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(2),
+          const Padding(
+            padding: EdgeInsets.all(2),
             child: Center(
               child: CircleAvatar(
                 radius: 75,
-                //TODO: backgroundImage: Put an image here
+                backgroundImage: AssetImage('images/lady.jpeg'),
               ),
             ),
           ),
