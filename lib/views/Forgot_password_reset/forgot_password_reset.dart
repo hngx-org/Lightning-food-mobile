@@ -1,6 +1,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
+import 'package:lightning_food_mobile/views/forgot_password_3_and_4/screens/forgot_password.dart';
 import '../../constants/app_widgets.dart';
 
 class ForgotPasswordReset extends StatefulWidget {
@@ -106,14 +107,16 @@ class _ForgotPasswordResetState extends State<ForgotPasswordReset> {
                    dialogButton: AppButton(
                      buttonColor: AppColor.primaryColor,
                      height: 48.h,
-                     width: 382.w,
+                     width: 322.w,
                      buttonText: 'Continue',
-                     onTap: () {}, buttonTextColor: AppColor.pureWhite, fontSize: 16.sp,
+                     onTap: () {
+                       Navigator.push(context, MaterialPageRoute(builder: (_)=>ForgotPassword()));
+                     }, buttonTextColor: AppColor.pureWhite, fontSize: 16.sp,
                    ),
                    dialogIcon: Image.asset(
                      'images/tick_circle.png',
-                     height: 100,
-                     width: 100,
+                     height: 100.h,
+                     width: 100.w,
                    ),
                    dialogText: Text(
                      'A password reset link has been sent\nto your email',

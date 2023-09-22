@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/constants/app_widgets.dart';
-import 'package:lightning_food_mobile/main.dart';
+import 'package:lightning_food_mobile/views/signup_successful/signupSuccess.dart';
 
 class EmailConfirmationScreen extends StatefulWidget {
   const EmailConfirmationScreen({super.key});
@@ -102,7 +102,7 @@ class _EmailConfirmationScreenState extends State<EmailConfirmationScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const Home(),
+                        builder: (context) => SignUpSuccessfulPage(),
                       ),
                     );
                   }, fontSize: 16.sp,
