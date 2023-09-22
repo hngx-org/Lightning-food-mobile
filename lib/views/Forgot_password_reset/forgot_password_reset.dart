@@ -110,7 +110,7 @@ class _ForgotPasswordResetState extends State<ForgotPasswordReset> {
                      width: 322.w,
                      buttonText: 'Continue',
                      onTap: () {
-                       Navigator.push(context, MaterialPageRoute(builder: (_)=>ForgotPassword()));
+                       Navigator.push(context, MaterialPageRoute(builder: (_)=>const ForgotPassword()));
                      }, buttonTextColor: AppColor.pureWhite, fontSize: 16.sp,
                    ),
                    dialogIcon: Image.asset(

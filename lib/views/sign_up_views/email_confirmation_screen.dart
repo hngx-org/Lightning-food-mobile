@@ -103,7 +103,7 @@ class _EmailConfirmationScreenState extends State<EmailConfirmationScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SignUpSuccessfulPage(),
+                      builder: (context) => const SignUpSuccessfulPage(),
                     ),
                   );
                 },

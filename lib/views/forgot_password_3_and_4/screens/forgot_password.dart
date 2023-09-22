@@ -138,7 +138,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 width: 322.w,
                 buttonText: 'Continue',
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_)=>LoginScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_)=>const LoginScreen()));
                 },
                 buttonTextColor: AppColor.pureWhite,
                 fontSize: 16.sp,
