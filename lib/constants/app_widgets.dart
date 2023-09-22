@@ -52,17 +52,20 @@ class AppButton extends StatelessWidget {
 }
 
 class ContactListView extends StatelessWidget {
-  const ContactListView(
+  ContactListView(
       {Key? key,
       required this.profilePath,
       required this.listNumber,
       required this.tileTitle,
       required this.onTap,
-      required this.containerHeight})
+      required this.containerHeight,
+      this.time,
+      this.icon})
       : super(key: key);
 
   final String profilePath;
-
+  final String? time;
+  final IconData? icon;
   final double containerHeight;
   final int listNumber;
   final String tileTitle;
@@ -129,6 +132,12 @@ class ContactListView extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
+            Spacer(),
+            Text(time??''),
+            SizedBox(
+              width: 13.w,
+            ),
+            Icon(icon),
           ],
         ),
       ),
