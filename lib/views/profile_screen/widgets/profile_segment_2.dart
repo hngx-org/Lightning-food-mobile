@@ -43,27 +43,24 @@ class _ProfileSegment2State extends State<ProfileSegment2> {
               },
             ),
             isAdmin
-                ? Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Column(
-                      children: [
-                        SizedBox(height: 8.h),
-                        ProfilePageButton(
-                          leadingIcon: const Icon(
-                            Iconsax.message_edit,
-                          ),
-                          buttonLabel: 'Invite User',
-                          buttonColor: AppColor.secondaryColor,
-                          onTap: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) => const StaffInviteScreen(),
-                              ),
-                            );
-                          },
+                ? Column(
+                    children: [
+                      SizedBox(height: 8.h),
+                      ProfilePageButton(
+                        leadingIcon: const Icon(
+                          Iconsax.message_edit,
                         ),
-                      ],
-                    ),
+                        buttonLabel: 'Invite User',
+                        buttonColor: AppColor.secondaryColor,
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const StaffInviteScreen(),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
                   )
                 : const SizedBox(height: 0),
             SizedBox(height: 8.h),

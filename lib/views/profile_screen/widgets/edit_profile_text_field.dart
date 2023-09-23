@@ -33,6 +33,7 @@ class EditProfileTextField extends StatelessWidget {
         ),
         SizedBox(height: 8.h),
         TextFormField(
+          
           enabled: enabled,
           validator: validator != null
               ? (value) {
