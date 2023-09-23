@@ -66,6 +66,38 @@ class _SignUpScreenState extends State<SignUpScreen> {
               SizedBox(height: 22.h),
               Text('Email Address', style: TextStyle(fontSize: 16.sp),),
               SizedBox(height: 4.h),
+<<<<<<< HEAD
+=======
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: AppColor.plainBlack
+                  ),
+                  borderRadius: BorderRadius.circular(8.r),
+                  ),
+                  // borderRadius: BorderRadius.circular(8.r),
+                // color: Colors.pink,
+                height: 56.h,
+                child: TextField(
+                  controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    hintStyle: TextStyle(fontSize: 12.sp),
+                    hintText: 'e.g. kayjay@gmail.com',
+                    border:
+                    OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 16.w,
+                      vertical: 10.h,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 12.h),
+>>>>>>> main
               Container(
                 decoration: BoxDecoration(
                   border: Border.all(

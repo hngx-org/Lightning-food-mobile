@@ -11,7 +11,11 @@ import 'views/profile_screen/profile_view_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+<<<<<<< HEAD
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((value) => runApp(const MyApp()));
+=======
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((value) => runApp(MyApp()));
+>>>>>>> main
   runApp(const MyApp());
 }
 
