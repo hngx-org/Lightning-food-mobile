@@ -56,7 +56,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 SizedBox(height: 10.h),
                 Text(
                   'Create Account',
-                  style: Theme.of(context).textTheme.headlineLarge,
+                  style: TextStyle(fontSize: 24.sp)
                 ),
                 SizedBox(height: 10.h),
                 const Text(

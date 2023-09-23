@@ -58,11 +58,16 @@ class ContactListView extends StatelessWidget {
       required this.listNumber,
       required this.tileTitle,
       required this.onTap,
-      required this.containerHeight})
+      required this.containerHeight,
+      this.time,
+      this.physics,
+      this.icon})
       : super(key: key);
 
   final String profilePath;
-
+  final String? time;
+  final dynamic physics;
+  final IconData? icon;
   final double containerHeight;
   final int listNumber;
   final String tileTitle;
@@ -76,6 +81,8 @@ class ContactListView extends StatelessWidget {
     ];
     return ListView.separated(
       itemCount: listNumber,
+      physics: physics,
+      shrinkWrap: true,
       separatorBuilder: (BuildContext context, child) {
         return SizedBox(
           height: 16.h,
@@ -129,6 +136,12 @@ class ContactListView extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
+            const Spacer(),
+            Text(time ?? ''),
+            SizedBox(
+              width: 13.w,
+            ),
+            Icon(icon),
           ],
         ),
       ),
@@ -149,21 +162,24 @@ class DialogueBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.r)),
       insetPadding: EdgeInsets.zero,
       child: Container(
-        height: 428,
-        width: 380,
-        decoration: BoxDecoration(color: AppColor.secondaryColor),
+        height: 428.h,
+        width: 380.w,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20.r),
+            color: AppColor.secondaryColor),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             dialogIcon,
-            const SizedBox(
-              height: 32,
+            SizedBox(
+              height: 32.h,
             ),
             dialogText,
-            const SizedBox(
-              height: 64,
+            SizedBox(
+              height: 64.h,
             ),
             dialogButton
           ],
