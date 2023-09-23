@@ -5,14 +5,14 @@ import 'package:lightning_food_mobile/constants/app_widgets.dart';
 import 'package:lightning_food_mobile/views/login_view/login_screen.dart';
 import 'package:lightning_food_mobile/views/sign_up_views/email_confirmation_screen.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class AdminSignUpScreen extends StatefulWidget {
+  const AdminSignUpScreen({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<AdminSignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _SignUpScreenState extends State<AdminSignUpScreen> {
   late TextEditingController _emailController;
 
   @override
@@ -64,17 +64,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 SizedBox(height: 10.h),
                 const Text('Email Address'),
                 SizedBox(height: 5.h),
-                TextField(
-                  controller: _emailController,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    hintText: 'e.g. kayjay@gmail.com',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    contentPadding: EdgeInsets.symmetric(
-                      horizontal: 16.w,
-                      vertical: 10.h,
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: AppColor.plainBlack),
+                    borderRadius: BorderRadius.circular(8.r),
+                  ),
+                  height: 56.h,
+                  child: TextField(
+                    controller: _emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                      hintStyle: TextStyle(fontSize: 12.sp),
+                      hintText: 'e.g. kayjay@gmail.com',
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(8.r),
+                      ),
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: 16.w,
+                        vertical: 10.h,
+                      ),
                     ),
                   ),
                 ),
