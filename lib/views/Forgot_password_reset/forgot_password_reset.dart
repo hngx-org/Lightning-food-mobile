@@ -11,12 +11,12 @@ class ForgotPasswordReset extends StatefulWidget {
 }
 
 class _ForgotPasswordResetState extends State<ForgotPasswordReset> {
-  TextEditingController emailController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    emailController = TextEditingController();
+    _emailController = TextEditingController();
   }
 
   @override
@@ -75,23 +75,30 @@ class _ForgotPasswordResetState extends State<ForgotPasswordReset> {
             const SizedBox(
               height: 4,
             ),
-            TextFormField(
-              cursorColor: AppColor.primaryColor,
-              controller: emailController,
-              keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: AppColor.black33), // Set the border color here
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: AppColor.plainBlack), // Set the border color here
-                ),
-                hintText: 'e.g. kayjay@gmail.com',
-                hintStyle: TextStyle(color: AppColor.lightBlack),
-              ),
-            ),
+    Container(
+    decoration: BoxDecoration(
+    border: Border.all(
+    color: AppColor.plainBlack
+    ),
+    borderRadius: BorderRadius.circular(8.r),
+    ),
+    height: 56.h,
+    child: TextField(
+    controller: _emailController,
+    keyboardType: TextInputType.emailAddress,
+    decoration: InputDecoration(
+    hintStyle: TextStyle(fontSize: 12.sp),
+    hintText: 'e.g. kayjay@gmail.com',
+    border:
+    OutlineInputBorder(
+    borderSide: BorderSide.none,
+    borderRadius: BorderRadius.circular(8.r),
+    ),
+    contentPadding: EdgeInsets.symmetric(
+    horizontal: 16.w,
+    vertical: 10.h,
+    ),
+    ),),),
             const SizedBox(
               height: 84,
             ),
@@ -136,7 +143,7 @@ class _ForgotPasswordResetState extends State<ForgotPasswordReset> {
 
   @override
   void dispose() {
-    emailController.dispose();
+    _emailController.dispose();
     super.dispose();
   }
 }
