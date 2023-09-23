@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 
 import '../../constants/app_widgets.dart';
+import 'dummy_data.dart';
+import 'widgets/custom_profile_app_bar.dart';
 import 'widgets/edit_profile_text_field.dart';
 import 'widgets/profile_icon.dart';
-import 'widgets/custom_profile_app_bar.dart';
-import 'dummy_data.dart';
 
 //TODO: Probably change this to stateless when using state management
 class EditProfileScreen extends StatefulWidget {
@@ -44,7 +44,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.bgColor,
-      appBar: const CustomProfileAppBar(
+      appBar: CustomProfileAppBar(
+        onPressed: () {
+          Navigator.pop(context);
+        },
         title: 'Edit Profile',
       ).build(context),
       body: SingleChildScrollView(
@@ -85,13 +88,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             EditProfileTextField(
               controller: mailController,
               fieldLabel: 'Email',
-              validator: (input) {
-                if (input != null && input.isNotEmpty) {
-                  return null;
-                } else {
-                  return 'Input a valid email';
-                }
-              },
+              enabled: false,
+              validator: null,
             ),
             SizedBox(height: 10.h),
             EditProfileTextField(

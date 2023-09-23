@@ -51,28 +51,46 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
               SizedBox(height: 16.h),
-              const Text(
+              Text(
                 "Create an account to enjoy the lightening employees's app.",
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(fontSize: 16.sp),
               ),
               SizedBox(height: 28.h),
-              Text('Create Account', style: TextStyle(fontSize: 24.sp)),
+              Text('Create Account',
+                  style: TextStyle(
+                    fontSize: 24.sp,
+                    fontWeight: FontWeight.w700,
+                  )),
               SizedBox(height: 16.h),
-              const Text('To get started, we just need a few details from you'),
+              Text('To get started, we just need a few details from you',style: TextStyle(fontSize: 16.sp),),
               SizedBox(height: 22.h),
-              const Text('Email Address'),
+              Text('Email Address', style: TextStyle(fontSize: 16.sp),),
               SizedBox(height: 4.h),
-              TextField(
-                controller: _emailController,
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                  hintText: 'e.g. kayjay@gmail.com',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8.sp),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: AppColor.plainBlack
                   ),
-                  contentPadding: EdgeInsets.symmetric(
-                    horizontal: 16.w,
-                    vertical: 10.h,
+                  borderRadius: BorderRadius.circular(8.r),
+                  ),
+                  // borderRadius: BorderRadius.circular(8.r),
+                // color: Colors.pink,
+                height: 56.h,
+                child: TextField(
+                  controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    hintStyle: TextStyle(fontSize: 12.sp),
+                    hintText: 'e.g. kayjay@gmail.com',
+                    border:
+                    OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 16.w,
+                      vertical: 10.h,
+                    ),
                   ),
                 ),
               ),
@@ -118,7 +136,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('Have an account already?'),
+                  Text('Have an account already?',style: TextStyle(fontSize: 14.sp),),
                   TextButton(
                     onPressed: () {
                       Navigator.push(
@@ -128,9 +146,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       );
                     },
-                    child: const Text(
+                    child: Text(
                       'Log in',
                       style: TextStyle(
+                        fontSize: 14.sp,
                           color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                   ),

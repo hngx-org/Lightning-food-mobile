@@ -28,12 +28,16 @@ class _ForgotPasswordResetState extends State<ForgotPasswordReset> {
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
-            }, icon:  Icon(Icons.arrow_back_ios_new, color: AppColor.black2,)),
+            },
+            icon: Icon(
+              Icons.arrow_back_ios_new,
+              color: AppColor.black2,
+            )),
         centerTitle: true,
         title: Text(
           'Forgot Password',
           style: TextStyle(
-              fontSize: 20,
+              fontSize: 20.sp,
               fontWeight: FontWeight.w600,
               color: AppColor.black2),
         ),
@@ -41,97 +45,117 @@ class _ForgotPasswordResetState extends State<ForgotPasswordReset> {
       ),
       backgroundColor: AppColor.bgColor,
       body: SafeArea(
-        minimum: EdgeInsets.all(24.r),
         child: SingleChildScrollView(
           child:
-          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Padding(
+                padding: EdgeInsets.only(left: 24.w,right: 24.w),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      SizedBox(height: 47.h,),
             Text(
-              'Reset Password',
-              style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w700,
-                  color: AppColor.plainBlack),
+                'Reset Password',
+                style: TextStyle(
+                    fontSize: 24.sp,
+                    fontWeight: FontWeight.w700,
+                    color: AppColor.plainBlack),
             ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text(
-              'Don’t Panic, We’ll just reset your password',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-                color: AppColor.black33,
-              ),
-            ),
-            const SizedBox(
-              height: 22,
+            SizedBox(
+                height: 16.h,
             ),
             Text(
-              'Email Address',
-              style: TextStyle(
-                  fontSize: 14,
+                'Don’t Panic, We’ll just reset your password',
+                style: TextStyle(
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.w400,
-                  color: AppColor.black33),
-            ),
-            const SizedBox(
-              height: 4,
-            ),
-            TextFormField(
-              cursorColor: AppColor.primaryColor,
-              controller: emailController,
-              keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: AppColor.black33), // Set the border color here
+                  color: AppColor.black33,
                 ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: AppColor.plainBlack), // Set the border color here
-                ),
-                hintText: 'e.g. kayjay@gmail.com',
-                hintStyle: TextStyle(color: AppColor.lightBlack),
+            ),
+            SizedBox(
+                height: 22.h,
+            ),
+            Text(
+                'Email Address',
+                style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w400,
+                    color: AppColor.black33),
+            ),
+            SizedBox(
+                height: 4.h,
+            ),
+            Container(
+              height: 56.h,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.r),
+                border: Border.all(color: AppColor.plainBlack,width: 2)
+              ),
+              child: TextFormField(
+                  style: TextStyle(fontSize: 14.sp),
+                  cursorColor: AppColor.primaryColor,
+                  controller: emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: BorderSide.none // Set the border color here
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: BorderSide.none // Set the border color here
+                    ),
+                    hintText: 'e.g. kayjay@gmail.com',
+                    hintStyle: TextStyle(color: AppColor.lightBlack),
+                  ),
               ),
             ),
-            const SizedBox(
-              height: 84,
+            SizedBox(
+                height: 84.h,
             ),
             AppButton(
-              height: 48.h,
-              width: 382.w,
-              buttonText: 'Reset Password',
-              onTap: () {
-               showDialog(context: context,
-                   builder: (_){
-                 return DialogueBox(
-                   dialogButton: AppButton(
-                     buttonColor: AppColor.primaryColor,
-                     height: 48.h,
-                     width: 322.w,
-                     buttonText: 'Continue',
-                     onTap: () {
-                       Navigator.push(context, MaterialPageRoute(builder: (_)=>const ForgotPassword()));
-                     }, buttonTextColor: AppColor.pureWhite, fontSize: 16.sp,
-                   ),
-                   dialogIcon: Image.asset(
-                     'images/tick_circle.png',
-                     height: 100.h,
-                     width: 100.w,
-                   ),
-                   dialogText: Text(
-                     'A password reset link has been sent\nto your email',
-                     textAlign: TextAlign.center,
-                     style: TextStyle(
-                         color: AppColor.black2,
-                         fontSize: 14.sp,
-                         fontWeight: FontWeight.w600),
-                   ),
-                 );
-                   });
-              },
-              buttonColor: AppColor.primaryColor,
-              buttonTextColor: AppColor.pureWhite, fontSize: 16,),
+                height: 48.h,
+                width: 382.w,
+                buttonText: 'Reset Password',
+                onTap: () {
+                  showDialog(
+                      context: context,
+                      builder: (_) {
+                        return DialogueBox(
+                          dialogButton: AppButton(
+                            buttonColor: AppColor.primaryColor,
+                            height: 48.h,
+                            width: 322.w,
+                            buttonText: 'Continue',
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => const ForgotPassword()));
+                            },
+                            buttonTextColor: AppColor.pureWhite,
+                            fontSize: 16.sp,
+                          ),
+                          dialogIcon: Image.asset(
+                            'images/tick_circle.png',
+                            height: 100.h,
+                            width: 100.w,
+                          ),
+                          dialogText: Text(
+                            'A password reset link has been sent\nto your email',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: AppColor.black2,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        );
+                      });
+                },
+                buttonColor: AppColor.primaryColor,
+                buttonTextColor: AppColor.pureWhite,
+                fontSize: 16.sp,
+            ),
           ]),
+              ),
         ),
       ),
     );

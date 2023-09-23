@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
+import 'package:lightning_food_mobile/main.dart';
 import 'package:lightning_food_mobile/views/send_free_lunch/choose_lunch_screen.dart';
 
 import '../../constants/app_widgets.dart';
@@ -19,7 +20,9 @@ class SendFreeLunch extends StatelessWidget {
         elevation: 0.0,
         leading: GestureDetector(
           onTap: () {
-            Navigator.pop(context);
+            Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (_) => const Home()),
+                (route) => false);
           },
           child: const Icon(
             Iconsax.arrow_left,
@@ -50,20 +53,21 @@ class SendFreeLunch extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(
-                height: 8,
+              SizedBox(
+                height: 8.h,
               ),
               Image.asset(
+                fit: BoxFit.contain,
                 height: 24.h,
                 width: 24.w,
                 'images/celebrate_icon.png',
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: 20.h,
               ),
               _textField(),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: 20.h,
               ),
               Expanded(
                 flex: 1,
@@ -94,10 +98,16 @@ class SendFreeLunch extends StatelessWidget {
   }
 
   Widget _textField() {
-    return SizedBox(
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: AppColor.plainBlack,width: 2),
+        borderRadius: BorderRadius.circular(8.r)
+      ),
       height: 44.h,
       width: 382.w,
       child: TextField(
+        cursorColor: AppColor.plainBlack,
+        style: TextStyle(fontSize: 14.sp),
         decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(
             horizontal: 5.w,
@@ -115,11 +125,11 @@ class SendFreeLunch extends StatelessWidget {
           border: InputBorder.none,
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5),
-            borderSide: BorderSide(width: 1.5.w),
+            borderSide: BorderSide.none,
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5),
-            borderSide: const BorderSide(width: 1.5),
+            borderSide: BorderSide.none,
           ),
         ),
       ),

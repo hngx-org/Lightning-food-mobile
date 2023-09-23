@@ -51,22 +51,31 @@ class _EmailConfirmationScreenState extends State<EmailConfirmationScreen> {
                 ),
               ),
               SizedBox(height: 16.h),
-              const Text("We've sent a 6 digit code to mayacox@gmail.com."),
-              const Text("The code expires shortly, so please enter it soon."),
+               Text("We've sent a 6 digit code to mayacox@gmail.com.", style: TextStyle(fontSize: 14.sp),),
+              Text("The code expires shortly, so please enter it soon.", style: TextStyle(fontSize: 14.sp),),
               SizedBox(height: 22.h),
-              const Text('Confirmation code'),
+              Text('Confirmation code',style: TextStyle(fontSize: 14.sp),),
               SizedBox(height: 4.h),
-              TextField(
-                controller: _codeController,
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                  hintText: 'e.g. kayjay@gmail.com',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  contentPadding: EdgeInsets.symmetric(
-                    horizontal: 16.w,
-                    vertical: 10.h,
+              Container(
+                height: 56.h,
+                decoration: BoxDecoration(
+                  border: Border.all(color: AppColor.plainBlack),
+                  borderRadius: BorderRadius.circular(8.r)
+                ),
+                child: TextField(
+                  controller: _codeController,
+                  style: TextStyle(fontSize: 14.sp),
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 16.w,
+                      vertical: 10.h,
+                    ),
                   ),
                 ),
               ),
@@ -110,8 +119,8 @@ class _EmailConfirmationScreenState extends State<EmailConfirmationScreen> {
                 fontSize: 16.sp,
               ),
               SizedBox(height: 107.h),
-              const Center(
-                child: Text("Can't find your code? Check your spam folder!"),
+              Center(
+                child: Text("Can't find your code? Check your spam folder!",style: TextStyle(fontSize: 14.sp),),
               ),
             ],
           ),

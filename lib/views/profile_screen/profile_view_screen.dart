@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
+import 'package:lightning_food_mobile/main.dart';
 
 import 'widgets/custom_profile_app_bar.dart';
 import 'widgets/profile_segment.dart';
@@ -13,7 +14,12 @@ class ProfileViewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.bgColor,
-      appBar: const CustomProfileAppBar(
+      appBar: CustomProfileAppBar(
+        onPressed: () {
+          Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (_) => const Home()),
+              (route) => false);
+        },
         title: 'Profile',
       ).build(context),
       body: SingleChildScrollView(
