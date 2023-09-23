@@ -54,12 +54,12 @@ class NotificationScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(left: 8.w),
                 child: ContactListView(
+                    iconImage: true,
                     profilePath: "images/lady.jpeg",
                     physics: const NeverScrollableScrollPhysics(),
                     listNumber: 1,
                     tileTitle: "Joy Lu sent a free lunch",
                     time: "1h",
-                    icon: Iconsax.coin5,
                     onTap: () {},
                     containerHeight: 64.h),
               ),
@@ -82,6 +82,7 @@ class NotificationScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(left: 8.w),
                 child: ContactListView(
+                    iconImage: true,
                     profilePath: "images/lady.jpeg",
                     physics: const NeverScrollableScrollPhysics(),
                     listNumber: 5,

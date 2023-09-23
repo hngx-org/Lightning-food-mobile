@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/constants/app_widgets.dart';
+import 'package:lightning_food_mobile/views/send_free_lunch/send_free_lunch_screen.dart';
 
 class ChooseLunchScreen extends StatefulWidget {
   const ChooseLunchScreen({super.key});
@@ -72,15 +74,15 @@ class _ChooseLunchScreenState extends State<ChooseLunchScreen> {
             children: [
               _singleSendLunchTile(
                   profilePath: 'images/lady.jpeg', tileText: 'Joy Lu'),
-              const SizedBox(
-                height: 30,
+              SizedBox(
+                height: 30.h,
               ),
               Text(
                 'How many lunches will you like to send?',
                 style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
               ),
-              const SizedBox(
-                height: 24,
+              SizedBox(
+                height: 24.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -92,7 +94,7 @@ class _ChooseLunchScreenState extends State<ChooseLunchScreen> {
                       buttonTextColor: Colors.white,
                       onTap: () {},
                       buttonColor: AppColor.primaryColor,
-                      fontSize: 14.sp),
+                      fontSize: 12.sp),
                   AppButton(
                       height: 87.h,
                       width: 96.w,
@@ -100,7 +102,7 @@ class _ChooseLunchScreenState extends State<ChooseLunchScreen> {
                       buttonTextColor: Colors.black,
                       onTap: () {},
                       buttonColor: AppColor.secondaryColor,
-                      fontSize: 14.sp),
+                      fontSize: 12.sp),
                   AppButton(
                       height: 87.h,
                       width: 96.w,
@@ -108,7 +110,7 @@ class _ChooseLunchScreenState extends State<ChooseLunchScreen> {
                       buttonTextColor: Colors.black,
                       onTap: () {},
                       buttonColor: AppColor.tetiaryColor,
-                      fontSize: 14.sp),
+                      fontSize: 12.sp),
                 ],
               ),
               SizedBox(
@@ -147,7 +149,34 @@ class _ChooseLunchScreenState extends State<ChooseLunchScreen> {
                   width: 133.w,
                   buttonText: 'Send Free Lunch',
                   buttonTextColor: Colors.white,
-                  onTap: () {},
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (_) => DialogueBox(
+                        dialogIcon: SvgPicture.asset(
+                            'images/vuesax-outline-tick-circle.svg'),
+                        dialogText: Text(
+                            'You have sent a free lunch to Joy Lu ',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontWeight: FontWeight.w600,fontSize: 14.sp)),
+                        dialogButton: AppButton(
+                          margin: EdgeInsets.symmetric(horizontal: 24.w),
+                          height: 48.h,
+                          width: 383.w,
+                          buttonText: 'Close',
+                          buttonTextColor: Colors.white,
+                          buttonColor: AppColor.primaryColor,
+                          fontSize: 14.sp,
+                          onTap: () {
+                            Navigator.of(context).pushAndRemoveUntil(
+                                MaterialPageRoute(
+                                    builder: (_) => const SendFreeLunch()),
+                                (route) => false);
+                          },
+                        ),
+                      ),
+                    );
+                  },
                   buttonColor: AppColor.primaryColor,
                   fontSize: 14.sp),
             ],
@@ -162,6 +191,8 @@ class _ChooseLunchScreenState extends State<ChooseLunchScreen> {
       height: 168.h,
       width: 382.w,
       child: TextField(
+        cursorColor: AppColor.plainBlack,
+        style: TextStyle(fontSize: 14.sp),
         maxLines: 20,
         focusNode: _focusNode,
         decoration: InputDecoration(

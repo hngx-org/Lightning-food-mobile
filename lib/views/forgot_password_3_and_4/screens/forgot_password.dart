@@ -68,21 +68,21 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 ],
               ),
               SizedBox(
-                height: 53.h,
+                height: 47.h,
               ),
               SizedBox(
                 width: 350.w,
                 child: Text('Create a new password',
                     style: TextStyle(
-                      fontSize: 25.sp,
+                      fontSize: 24.sp,
                       fontWeight: FontWeight.w700,
                     )),
               ),
               SizedBox(
-                height: 20.h,
+                height: 16.h,
               ),
               SizedBox(
-                width: 350.w,
+                width: 382.w,
                 child: Text(
                   'Create a new password to access your\n account',
                   style: TextStyle(
@@ -93,9 +93,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 ),
               ),
               SizedBox(
-                height: 25.h,
+                height: 22.h,
               ),
-              SizedBox(width: 350.w, child: const Text('Password')),
+              SizedBox(width: 382.w, child: Text('Password',style: TextStyle(fontSize: 14.sp),)),
               SizedBox(
                 height: 4.h,
               ),
@@ -104,9 +104,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 obscureText: true,
               ),
               SizedBox(
-                height: 25.h,
+                height: 12.h,
               ),
-              SizedBox(width: 350.w, child: const Text('Confirm Password')),
+              SizedBox(width: 382.w, child:Text('Confirm Password',style: TextStyle(fontSize: 14.sp),)),
               SizedBox(
                 height: 4.h,
               ),
@@ -115,11 +115,11 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 obscureText: true,
               ),
               SizedBox(
-                height: 50.h,
+                height: 84.h,
               ),
               AppButton(
-                height: 60.h,
-                width: 370.w,
+                height: 48.h,
+                width: 382.w,
                 buttonText: 'Reset Password',
                 onTap: () {
                   _showSuccess();
@@ -135,24 +135,24 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               dialogButton: AppButton(
                 buttonColor: AppColor.primaryColor,
                 height: 48.h,
-                width: 322.w,
+                width: 332.w,
                 buttonText: 'Continue',
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_)=>LoginScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_)=>const LoginScreen()));
                 },
                 buttonTextColor: AppColor.pureWhite,
                 fontSize: 16.sp,
               ),
               dialogIcon: Icon(
-                size: 100.sp,
+                size: 100,
                 color: const Color(0xFF08B839),
                 Iconsax.tick_circle,
               ),
               dialogText: Text(
-                'Your password has been reset successfully',
+                'Your password has been reset \nsuccessfully',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 21.sp,
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.w600,
                 ),
               ),

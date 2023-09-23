@@ -23,96 +23,106 @@ class _EmailConfirmationScreenState extends State<EmailConfirmationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(16),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Center(
-                  child: Text(
-                    'Confirmation',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        foregroundColor: AppColor.black2,
+        backgroundColor: AppColor.bgColor,
+        elevation: 0,
+        title: Text(
+          'Confirmation',
+          style: TextStyle(
+            fontSize: 20.sp,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Check your email for a confirmation code',
+                style: TextStyle(
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.w700,
                 ),
-                SizedBox(height: 5.h),
-                const Text(
-                  'Check your email for a confirmation code',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w700,
-                  ),
+              ),
+              SizedBox(height: 16.h),
+               Text("We've sent a 6 digit code to mayacox@gmail.com.", style: TextStyle(fontSize: 14.sp),),
+              Text("The code expires shortly, so please enter it soon.", style: TextStyle(fontSize: 14.sp),),
+              SizedBox(height: 22.h),
+              Text('Confirmation code',style: TextStyle(fontSize: 14.sp),),
+              SizedBox(height: 4.h),
+              Container(
+                height: 56.h,
+                decoration: BoxDecoration(
+                  border: Border.all(color: AppColor.plainBlack),
+                  borderRadius: BorderRadius.circular(8.r)
                 ),
-                SizedBox(height: 10.h),
-                const Text("We've sent a 6 digit code to mayacox@gmail.com."),
-                const Text(
-                    "The code expires shortly, so please enter it soon."),
-                SizedBox(height: 22.h),
-                const Text('Confirmation code'),
-                SizedBox(height: 4.h),
-                TextField(
+                child: TextField(
                   controller: _codeController,
+                  style: TextStyle(fontSize: 14.sp),
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
-                    hintText: 'e.g. kayjay@gmail.com',
+
                     border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 10,
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 16.w,
+                      vertical: 10.h,
                     ),
                   ),
                 ),
-                SizedBox(height: 10.h),
-                Container(
-                  height: 4,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(),
-                  ),
-                  child: Row(
-                    children: [
-                      const Expanded(flex: 1, child: SizedBox()),
-                      Expanded(
-                        flex: 1,
-                        child: Container(
-                          color: Theme.of(context).colorScheme.primary,
-                          width: 0,
-                        ),
+              ),
+              SizedBox(height: 12.h),
+              Container(
+                height: 4.h,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16.sp),
+                  border: Border.all(),
+                ),
+                child: Row(
+                  children: [
+                    const Expanded(flex: 1, child: SizedBox()),
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        color: AppColor.primaryColor,
+                        width: 0,
                       ),
-                      const Expanded(flex: 1, child: SizedBox()),
-                    ],
-                  ),
+                    ),
+                    const Expanded(flex: 1, child: SizedBox()),
+                  ],
                 ),
-                SizedBox(height: 84.h),
-                AppButton(
-                  height: 48.h,
-                  width: double.infinity,
-                  buttonColor: AppColor.primaryColor,
-                  buttonText: 'Continue',
-                  buttonTextColor: AppColor.pureWhite,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SignUpSuccessfulPage(),
-                      ),
-                    );
-                  }, fontSize: 16.sp,
-                ),
-                SizedBox(height: 107.h),
-                const Center(
-                  child: Text("Can't find your code? Check your spam folder!"),
-                ),
-              ],
-            ),
+              ),
+              SizedBox(height: 84.h),
+              AppButton(
+                height: 48.h,
+                width: double.infinity,
+                buttonColor: AppColor.primaryColor,
+                buttonText: 'Continue',
+                buttonTextColor: AppColor.pureWhite,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SignUpSuccessfulPage(),
+                    ),
+                  );
+                },
+                fontSize: 16.sp,
+              ),
+              SizedBox(height: 107.h),
+              Center(
+                child: Text("Can't find your code? Check your spam folder!",style: TextStyle(fontSize: 14.sp),),
+              ),
+            ],
           ),
         ),
       ),

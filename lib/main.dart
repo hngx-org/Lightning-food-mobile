@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
@@ -9,6 +10,8 @@ import 'package:lightning_food_mobile/views/send_free_lunch/send_free_lunch_scre
 import 'views/profile_screen/profile_view_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((value) => runApp(MyApp()));
   runApp(const MyApp());
 }
 
@@ -46,7 +49,7 @@ class _HomeState extends State<Home> {
   int selectedIndex = 0;
   List views = [
     const HomeScreen(),
-    SendFreeLunch(),
+    const SendFreeLunch(),
     Container(
       color: Colors.yellow,
     ),

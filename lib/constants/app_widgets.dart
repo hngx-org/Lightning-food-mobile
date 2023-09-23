@@ -1,6 +1,8 @@
+import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
+import 'package:lightning_food_mobile/views/signup_successful/reusable_confetti.dart';
 
 class AppButton extends StatelessWidget {
   const AppButton({
@@ -10,6 +12,7 @@ class AppButton extends StatelessWidget {
     required this.buttonText,
     required this.buttonTextColor,
     required this.onTap,
+    this.margin,
     required this.buttonColor,
     required this.fontSize,
   }) : super(key: key);
@@ -20,6 +23,7 @@ class AppButton extends StatelessWidget {
   final Color buttonTextColor;
   final Function()? onTap;
   final Color buttonColor;
+  final dynamic margin;
   final double fontSize;
 
   @override
@@ -27,6 +31,7 @@ class AppButton extends StatelessWidget {
     return Container(
       height: height,
       width: width,
+      margin: margin,
       decoration: BoxDecoration(
           color: buttonColor,
           borderRadius: BorderRadius.circular(8),
@@ -60,6 +65,7 @@ class ContactListView extends StatelessWidget {
       required this.onTap,
       required this.containerHeight,
       this.time,
+      required this.iconImage,
       this.physics,
       this.icon})
       : super(key: key);
@@ -68,6 +74,7 @@ class ContactListView extends StatelessWidget {
   final String? time;
   final dynamic physics;
   final IconData? icon;
+  final bool iconImage;
   final double containerHeight;
   final int listNumber;
   final String tileTitle;
@@ -79,6 +86,11 @@ class ContactListView extends StatelessWidget {
       AppColor.secondaryColor,
       AppColor.tetiaryColor,
     ];
+    List<String> imageIcon = [
+      'images/heart.png',
+      'images/icon.png',
+    ];
+
     return ListView.separated(
       itemCount: listNumber,
       physics: physics,
@@ -91,12 +103,14 @@ class ContactListView extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         return _listTile(
           color[index % color.length],
+          imageIcon[index % imageIcon.length],
+          iconImage,
         );
       },
     );
   }
 
-  Widget _listTile(Color conColor) {
+  Widget _listTile(Color conColor, String image, bool isVisible) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -114,7 +128,7 @@ class ContactListView extends StatelessWidget {
               width: 5.w,
             ),
             Container(
-              height: 55.h,
+              height: 45.h,
               width: 62.w,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
@@ -129,11 +143,16 @@ class ContactListView extends StatelessWidget {
             SizedBox(
               width: 12.h,
             ),
-            Text(
-              tileTitle,
-              style: TextStyle(
-                fontSize: 14.sp,
-                fontWeight: FontWeight.w600,
+            SizedBox(
+              width: 220.w,
+              child: Text(
+                tileTitle,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
             const Spacer(),
@@ -141,7 +160,17 @@ class ContactListView extends StatelessWidget {
             SizedBox(
               width: 13.w,
             ),
-            Icon(icon),
+            Visibility(
+              visible: isVisible,
+              child: Image.asset(
+                height: 24.h,
+                width: 24.w,
+                image,
+              ),
+            ),
+            SizedBox(
+              width: 10.w,
+            ),
           ],
         ),
       ),
@@ -149,7 +178,7 @@ class ContactListView extends StatelessWidget {
   }
 }
 
-class DialogueBox extends StatelessWidget {
+class DialogueBox extends StatefulWidget {
   const DialogueBox(
       {Key? key,
       required this.dialogIcon,
@@ -158,6 +187,25 @@ class DialogueBox extends StatelessWidget {
       : super(key: key);
 
   final Widget dialogIcon, dialogText, dialogButton;
+
+  @override
+  State<DialogueBox> createState() => _DialogueBoxState();
+}
+
+class _DialogueBoxState extends State<DialogueBox> {
+  final dynamic confettiController = ConfettiController();
+
+  @override
+  void initState() {
+    super.initState();
+    confettiController.play();
+  }
+
+  @override
+  void dispose() {
+    confettiController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -173,15 +221,16 @@ class DialogueBox extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            dialogIcon,
+            MyConfetti(controller: confettiController),
+            widget.dialogIcon,
             SizedBox(
               height: 32.h,
             ),
-            dialogText,
+            widget.dialogText,
             SizedBox(
               height: 64.h,
             ),
-            dialogButton
+            widget.dialogButton
           ],
         ),
       ),
