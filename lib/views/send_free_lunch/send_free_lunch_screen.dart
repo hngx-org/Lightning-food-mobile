@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
+import 'package:lightning_food_mobile/main.dart';
 import 'package:lightning_food_mobile/views/send_free_lunch/choose_lunch_screen.dart';
 
 import '../../constants/app_widgets.dart';
@@ -19,7 +20,9 @@ class SendFreeLunch extends StatelessWidget {
         elevation: 0.0,
         leading: GestureDetector(
           onTap: () {
-            Navigator.pop(context);
+            Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (_) => const Home()),
+                (route) => false);
           },
           child: const Icon(
             Iconsax.arrow_left,

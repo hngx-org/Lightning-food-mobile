@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/constants/app_widgets.dart';
+import 'package:lightning_food_mobile/views/send_free_lunch/send_free_lunch_screen.dart';
 
 class ChooseLunchScreen extends StatefulWidget {
   const ChooseLunchScreen({super.key});
@@ -147,7 +149,34 @@ class _ChooseLunchScreenState extends State<ChooseLunchScreen> {
                   width: 133.w,
                   buttonText: 'Send Free Lunch',
                   buttonTextColor: Colors.white,
-                  onTap: () {},
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (_) => DialogueBox(
+                        dialogIcon: SvgPicture.asset(
+                            'images/vuesax-outline-tick-circle.svg'),
+                        dialogText: const Text(
+                            'You have sent a free lunch to Joy Lu ',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontWeight: FontWeight.w600)),
+                        dialogButton: AppButton(
+                          margin: EdgeInsets.symmetric(horizontal: 24.w),
+                          height: 48.h,
+                          width: 383.w,
+                          buttonText: 'Close',
+                          buttonTextColor: Colors.white,
+                          buttonColor: AppColor.primaryColor,
+                          fontSize: 14.sp,
+                          onTap: () {
+                            Navigator.of(context).pushAndRemoveUntil(
+                                MaterialPageRoute(
+                                    builder: (_) => const SendFreeLunch()),
+                                (route) => false);
+                          },
+                        ),
+                      ),
+                    );
+                  },
                   buttonColor: AppColor.primaryColor,
                   fontSize: 14.sp),
             ],

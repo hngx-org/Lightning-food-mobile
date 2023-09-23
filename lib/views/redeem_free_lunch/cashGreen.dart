@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/constants/app_widgets.dart';
+import 'package:lightning_food_mobile/main.dart';
 
 class CashGreenScreen extends StatefulWidget {
   const CashGreenScreen({super.key});
@@ -104,7 +106,31 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
                     buttonText: 'Done',
                     buttonTextColor: Colors.white,
                     onTap: () {
-                      Navigator.pop(context);
+                      showDialog(
+                        context: context,
+                        builder: (_) => DialogueBox(
+                          dialogIcon: SvgPicture.asset(
+                              'images/vuesax-outline-tick-circle.svg'),
+                          dialogText: const Text('Successfully',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontWeight: FontWeight.w600)),
+                          dialogButton: AppButton(
+                            margin: EdgeInsets.symmetric(horizontal: 24.w),
+                            height: 48.h,
+                            width: 383.w,
+                            buttonText: 'Close',
+                            buttonTextColor: Colors.white,
+                            buttonColor: AppColor.primaryColor,
+                            fontSize: 14.sp,
+                            onTap: () {
+                              Navigator.of(context).pushAndRemoveUntil(
+                                  MaterialPageRoute(
+                                      builder: (_) => const Home()),
+                                  (route) => false);
+                            },
+                          ),
+                        ),
+                      );
                     },
                     buttonColor: AppColor.primaryColor,
                     fontSize: 14.sp),
