@@ -5,14 +5,13 @@ import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/views/Home/homeScreen.dart';
 import 'package:lightning_food_mobile/views/login_view/landing_page.dart';
-import 'package:lightning_food_mobile/views/login_view/login_screen.dart';
 import 'package:lightning_food_mobile/views/send_free_lunch/send_free_lunch_screen.dart';
 
 import 'views/profile_screen/profile_view_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((value) => runApp(MyApp()));
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((value) => runApp(const MyApp()));
   runApp(const MyApp());
 }
 

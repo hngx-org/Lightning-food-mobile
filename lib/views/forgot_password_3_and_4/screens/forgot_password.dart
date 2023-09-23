@@ -143,9 +143,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 buttonTextColor: AppColor.pureWhite,
                 fontSize: 16.sp,
               ),
-              dialogIcon: Icon(
+              dialogIcon: const Icon(
                 size: 100,
-                color: const Color(0xFF08B839),
+                color: Color(0xFF08B839),
                 Iconsax.tick_circle,
               ),
               dialogText: Text(

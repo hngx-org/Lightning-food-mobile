@@ -62,22 +62,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     fontWeight: FontWeight.w700,
                   )),
               SizedBox(height: 16.h),
-              Text(
-                'To get started, we just need a few details from you',
-                style: TextStyle(fontSize: 16.sp),
-              ),
+              Text('To get started, we just need a few details from you',style: TextStyle(fontSize: 16.sp),),
               SizedBox(height: 22.h),
-              Text(
-                'Email Address',
-                style: TextStyle(fontSize: 16.sp),
-              ),
+              Text('Email Address', style: TextStyle(fontSize: 16.sp),),
               SizedBox(height: 4.h),
               Container(
                 decoration: BoxDecoration(
-                  border: Border.all(color: AppColor.plainBlack),
+                  border: Border.all(
+                    color: AppColor.plainBlack
+                  ),
                   borderRadius: BorderRadius.circular(8.r),
-                ),
-                // borderRadius: BorderRadius.circular(8.r),
+                  ),
+                  // borderRadius: BorderRadius.circular(8.r),
                 // color: Colors.pink,
                 height: 56.h,
                 child: TextField(
@@ -86,7 +82,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   decoration: InputDecoration(
                     hintStyle: TextStyle(fontSize: 12.sp),
                     hintText: 'e.g. kayjay@gmail.com',
-                    border: OutlineInputBorder(
+                    border:
+                    OutlineInputBorder(
                       borderSide: BorderSide.none,
                       borderRadius: BorderRadius.circular(8.r),
                     ),
@@ -96,25 +93,103 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                 ),
-              ),
-              SizedBox(height: 12.h),
-              Container(
-                height: 4.h,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16.sp),
-                  border: Border.all(),
+
+                SizedBox(height: .h),
+                Text(
+                  'Welcome on board!',
+                  style: TextStyle(
+                    fontSize: 24.sp,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
-                child: Row(
+                SizedBox(height: 10.h),
+                Text(
+                  "Create an account to enjoy the lightening employees's app.",
+                  style: TextStyle(fontSize: 16.sp),
+                ),
+                SizedBox(height: 10.h),
+                Text(
+                  'Create Account',
+                  style: Theme.of(context).textTheme.headlineLarge,
+                ),
+                SizedBox(height: 10.h),
+                const Text(
+                    'To get started, we just need a few details from you'),
+                SizedBox(height: 10.h),
+                const Text('Email Address'),
+                SizedBox(height: 5.h),
+                TextField(
+                  controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    hintText: 'e.g. kayjay@gmail.com',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 16.w,
+                      vertical: 10.h,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 5.h),
+                Container(
+                  height: 4.h,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(),
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: Container(
+                          color: Theme.of(context).colorScheme.primary,
+                          width: 0,
+                        ),
+                      ),
+                      const Expanded(flex: 2, child: SizedBox()),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 84.h),
+                AppButton(
+                  height: 50.h,
+                  buttonColor: AppColor.primaryColor,
+                  width: double.infinity,
+                  buttonText: 'Continue',
+                  fontSize: 16.sp,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const EmailConfirmationScreen(),
+                      ),
+                    );
+                  },
+                  buttonTextColor: AppColor.pureWhite,
+                ),
+                SizedBox(height: 107.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        color: AppColor.primaryColor,
-                        width: 0,
+                    const Text('Have an account already?'),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginScreen(),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        'Log in',
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
                       ),
                     ),
-                    const Expanded(flex: 2, child: SizedBox()),
                   ],
                 ),
               ),
@@ -139,10 +214,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'Have an account already?',
-                    style: TextStyle(fontSize: 14.sp),
-                  ),
+                  Text('Have an account already?',style: TextStyle(fontSize: 14.sp),),
                   TextButton(
                     onPressed: () {
                       Navigator.push(
@@ -155,9 +227,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: Text(
                       'Log in',
                       style: TextStyle(
-                          fontSize: 14.sp,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
+                        fontSize: 14.sp,
+                          color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ],

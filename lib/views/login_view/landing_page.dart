@@ -71,7 +71,7 @@ class _LandingScreenState extends State<LandingScreen> {
               child: Container(
                 width: 210.w,
                 height: 219.h,
-                decoration: ShapeDecoration(
+                decoration: const ShapeDecoration(
                   gradient: LinearGradient(
                     begin: Alignment(0.00, -1.00),
                     end: Alignment(0, 1),
@@ -83,7 +83,7 @@ class _LandingScreenState extends State<LandingScreen> {
                   child: Text(
                     'USER',
                     style: TextStyle(
-                      color: Color(0xFF4C4C4C),
+                      color: const Color(0xFF4C4C4C),
                       fontSize: 24.sp,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w700,
@@ -108,14 +108,14 @@ class _LandingScreenState extends State<LandingScreen> {
                 child: Container(
                   width: 210.w,
                   height: 219.h,
-                  decoration: ShapeDecoration(
+                  decoration: const ShapeDecoration(
                     gradient: LinearGradient(
                         begin: Alignment(0.00, -1.00),
                         end: Alignment(0, 1),
                         colors: [Color(0x00FFA776), Color(0xFFFFA776)]),
                     shape: OvalBorder(),
                   ),
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       'ADMIN',
                       style: TextStyle(

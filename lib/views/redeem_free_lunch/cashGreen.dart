@@ -42,7 +42,7 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
                 SizedBox(
                   height: 30.h,
                 ),
-                Container(
+                SizedBox(
                   width: 382.w,
                   child: Text(
                     'Redeem Free Lunch For Cash',
@@ -57,7 +57,7 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
                 SizedBox(
                   height: 8.h,
                 ),
-                Container(
+                SizedBox(
                   width: 382.w,
                   child: Column(
                     children: [
@@ -76,7 +76,7 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
                 SizedBox(
                   height: 40.h,
                 ),
-                Container(
+                SizedBox(
                   width: 382.w,
                   child: Text(
                     'Please enter your account details to redeem \$ 5  cash for one free lunch',
