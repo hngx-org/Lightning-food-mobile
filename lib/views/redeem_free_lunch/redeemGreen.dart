@@ -32,7 +32,7 @@ class _RedeemScreenState extends State<RedeemScreen> {
 
   Widget SizedBoxH(double h) {
     return SizedBox(
-      height: h,
+      height: h.h,
     );
   }
 
@@ -59,8 +59,8 @@ class _RedeemScreenState extends State<RedeemScreen> {
             SizedBoxH(13.0),
             //
             Container(
-              width: 382,
-              height: 60,
+              width: 382.w,
+              height: 60.h,
               child: Text(
                 'Joy Lu sent you a free lunch with a\nnote',
                 textAlign: TextAlign.center,
@@ -68,47 +68,52 @@ class _RedeemScreenState extends State<RedeemScreen> {
                   color: Colors.black,
                   fontSize: 20.sp,
                   fontWeight: FontWeight.w600,
-                  height: 1.2,
+                  height: 1,
                 ),
               ),
             ),
-            SizedBoxH(4),
-            Image.asset(
+            SizedBoxH(8.h),
+            Container(
               height: 40.h,
               width: 40.w,
-              'images/celebrate_icon.png',
+              child: Image.asset(
+                'images/celebrate_icon.png',
+                fit: BoxFit.contain,
+              ),
             ),
             //
             SizedBoxH(15.0),
             Container(
-              padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
-              width: 382,
+              padding: EdgeInsets.fromLTRB(16.w, 8.h, 16.w, 8.h),
+              width: 382.w,
               margin: EdgeInsets.symmetric(horizontal: 20.w),
-              height: 122,
+              height: 122.h,
               decoration: BoxDecoration(
                 border: Border.all(
                     color: Colors.black, width: 2.0, style: BorderStyle.solid),
                 borderRadius: BorderRadius.circular(24),
-                color: const Color.fromRGBO(255, 219, 88, 1),
+                color: AppColor.secondaryColor,
               ),
               child: Center(
                 child: Text(
-                  "\"Hello Maya, I am gifting you a free lunch for giving such a stellar presentation today. Well done!\"",
+                  "\"Hello Maya, I am gifting you a free lunch for giving "
+                      "such a stellar presentation today. Well done!\"",
                   style: TextStyle(
                     fontStyle: FontStyle.italic,
                     fontWeight: FontWeight.w500,
                     fontSize: 20.sp,
                     fontFamily: 'Poppins',
+                    height: 1
                   ),
                 ),
               ),
             ),
             Expanded(flex: 2, child: SizedBoxH(40.0)),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              padding: EdgeInsets.symmetric(horizontal: 20.0.h),
               child: AppButton(
-                  height: 48,
-                  width: 382,
+                  height: 48.h,
+                  width: 382.w,
                   buttonText: "Redeem Free Lunch for Cash",
                   buttonTextColor: Colors.white,
                   onTap: () {
@@ -116,7 +121,7 @@ class _RedeemScreenState extends State<RedeemScreen> {
                         builder: (_) => const CashGreenScreen()));
                   },
                   buttonColor: AppColor.primaryColor,
-                  fontSize: 16),
+                  fontSize: 16.sp),
             ),
             Expanded(flex: 4, child: SizedBoxH(60.0))
           ],

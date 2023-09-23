@@ -1,6 +1,8 @@
+import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
+import 'package:lightning_food_mobile/views/signup_successful/reusable_confetti.dart';
 
 class AppButton extends StatelessWidget {
   const AppButton({
@@ -10,6 +12,7 @@ class AppButton extends StatelessWidget {
     required this.buttonText,
     required this.buttonTextColor,
     required this.onTap,
+    this.margin,
     required this.buttonColor,
     required this.fontSize,
   }) : super(key: key);
@@ -20,6 +23,7 @@ class AppButton extends StatelessWidget {
   final Color buttonTextColor;
   final Function()? onTap;
   final Color buttonColor;
+  final dynamic margin;
   final double fontSize;
 
   @override
@@ -27,6 +31,7 @@ class AppButton extends StatelessWidget {
     return Container(
       height: height,
       width: width,
+      margin: margin,
       decoration: BoxDecoration(
           color: buttonColor,
           borderRadius: BorderRadius.circular(8),
@@ -173,7 +178,7 @@ class ContactListView extends StatelessWidget {
   }
 }
 
-class DialogueBox extends StatelessWidget {
+class DialogueBox extends StatefulWidget {
   const DialogueBox(
       {Key? key,
       required this.dialogIcon,
@@ -182,6 +187,25 @@ class DialogueBox extends StatelessWidget {
       : super(key: key);
 
   final Widget dialogIcon, dialogText, dialogButton;
+
+  @override
+  State<DialogueBox> createState() => _DialogueBoxState();
+}
+
+class _DialogueBoxState extends State<DialogueBox> {
+  final dynamic confettiController = ConfettiController();
+
+  @override
+  void initState() {
+    super.initState();
+    confettiController.play();
+  }
+
+  @override
+  void dispose() {
+    confettiController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -197,15 +221,16 @@ class DialogueBox extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            dialogIcon,
+            MyConfetti(controller: confettiController),
+            widget.dialogIcon,
             SizedBox(
               height: 32.h,
             ),
-            dialogText,
+            widget.dialogText,
             SizedBox(
               height: 64.h,
             ),
-            dialogButton
+            widget.dialogButton
           ],
         ),
       ),

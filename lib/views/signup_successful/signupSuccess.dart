@@ -55,9 +55,9 @@ class _SignUpSuccessfulPageState extends State<SignUpSuccessfulPage> {
                 ),
                 SvgPicture.asset('images/vuesax-outline-tick-circle.svg'),
                 SizedBox(height: 32.h),
-                const Text('Your Account has been created \nsuccessfully',
+                Text('Your Account has been created \nsuccessfully',
                     textAlign: TextAlign.center,
-                    style: TextStyle( fontWeight: FontWeight.w600)),
+                    style: TextStyle( fontSize: 14.sp, fontWeight: FontWeight.w600)),
                 SizedBox(
                   height: 64.h,
                 ),
