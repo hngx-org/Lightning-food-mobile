@@ -60,7 +60,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 //TODO: Edit the user image
               },
             ),
-            SizedBox(height: 26.h),
+            SizedBox(height: 32.h),
             EditProfileTextField(
               controller: nameController,
               fieldLabel: 'Name',
@@ -72,7 +72,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 }
               },
             ),
-            SizedBox(height: 10.h),
+            SizedBox(height: 12.h),
             EditProfileTextField(
               controller: displayNameController,
               fieldLabel: 'Display Name',
@@ -84,28 +84,28 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 }
               },
             ),
-            SizedBox(height: 10.h),
+            SizedBox(height: 12.h),
             EditProfileTextField(
               controller: mailController,
               fieldLabel: 'Email',
               enabled: false,
               validator: null,
             ),
-            SizedBox(height: 10.h),
+            SizedBox(height: 12.h),
             EditProfileTextField(
               controller: organizationController,
               fieldLabel: 'Organization Name',
               validator: null,
               enabled: false,
             ),
-            SizedBox(height: 10.h),
+            SizedBox(height: 12.h),
             EditProfileTextField(
               controller: idController,
               fieldLabel: 'Staff Id',
               validator: null,
               enabled: false,
             ),
-            SizedBox(height: 48.h),
+            SizedBox(height: 28.h),
             AppButton(
               buttonColor: AppColor.primaryColor,
               buttonText: 'Save',
