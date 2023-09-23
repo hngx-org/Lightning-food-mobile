@@ -5,14 +5,14 @@ import 'package:lightning_food_mobile/constants/app_widgets.dart';
 import 'package:lightning_food_mobile/views/login_view/login_screen.dart';
 import 'package:lightning_food_mobile/views/sign_up_views/email_confirmation_screen.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class AdminSignUpScreen extends StatefulWidget {
+  const AdminSignUpScreen({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<AdminSignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _SignUpScreenState extends State<AdminSignUpScreen> {
   late TextEditingController _emailController;
 
   @override
@@ -30,7 +30,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         backgroundColor: AppColor.bgColor,
         elevation: 0,
         title: Text(
-          'Register',
+          'Register ',
           style: TextStyle(
             fontSize: 20.sp,
             fontWeight: FontWeight.w600,
@@ -77,8 +77,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   border: Border.all(color: AppColor.plainBlack),
                   borderRadius: BorderRadius.circular(8.r),
                 ),
-                // borderRadius: BorderRadius.circular(8.r),
-                // color: Colors.pink,
                 height: 56.h,
                 child: TextField(
                   controller: _emailController,
@@ -86,6 +84,61 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   decoration: InputDecoration(
                     hintStyle: TextStyle(fontSize: 12.sp),
                     hintText: 'e.g. kayjay@gmail.com',
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 16.w,
+                      vertical: 10.h,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 15.h),
+              Text(
+                'Organisation Name',
+                style: TextStyle(fontSize: 16.sp),
+              ),
+              SizedBox(height: 4.h),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: AppColor.plainBlack),
+                  borderRadius: BorderRadius.circular(8.r),
+                ),
+                height: 56.h,
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintStyle: TextStyle(fontSize: 12.sp),
+                    hintText: 'e.g. Extrano Empire',
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 16.w,
+                      vertical: 10.h,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 15.h),
+              Text(
+                'Lunch Price',
+                style: TextStyle(fontSize: 16.sp),
+              ),
+              SizedBox(height: 4.h),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: AppColor.plainBlack),
+                  borderRadius: BorderRadius.circular(8.r),
+                ),
+                height: 56.h,
+                child: TextField(
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    hintStyle: TextStyle(fontSize: 12.sp),
+                    hintText: 'e.g. 10000',
                     border: OutlineInputBorder(
                       borderSide: BorderSide.none,
                       borderRadius: BorderRadius.circular(8.r),
@@ -168,11 +221,5 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _emailController.dispose();
-    super.dispose();
   }
 }
