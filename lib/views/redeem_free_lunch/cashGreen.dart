@@ -19,7 +19,7 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
   TextEditingController bankController = TextEditingController();
   TextEditingController numberOfLunchController = TextEditingController();
   String? chooseBank;
-  List<String> bank = ["Bank", "First Bank", "Polaris", "UBA", "GTB"];
+  List<String> bank = ["Zenith Bank", "First Bank", "Polaris", "UBA", "GTB"];
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +28,13 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 24.w),
+            padding: EdgeInsets.symmetric(horizontal: 24.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 38.h,),
+                SizedBox(
+                  height: 38.h,
+                ),
                 GestureDetector(
                   onTap: () {
                     Navigator.pop(context);
@@ -42,11 +44,7 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
                 SizedBox(
                   height: 30.h,
                 ),
-<<<<<<< HEAD
                 SizedBox(
-=======
-                Container(
->>>>>>> main
                   width: 382.w,
                   child: Text(
                     'Redeem Free Lunch For Cash',
@@ -61,11 +59,7 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
                 SizedBox(
                   height: 8.h,
                 ),
-<<<<<<< HEAD
                 SizedBox(
-=======
-                Container(
->>>>>>> main
                   width: 382.w,
                   child: Column(
                     children: [
@@ -84,11 +78,7 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
                 SizedBox(
                   height: 40.h,
                 ),
-<<<<<<< HEAD
                 SizedBox(
-=======
-                Container(
->>>>>>> main
                   width: 382.w,
                   child: Text(
                     'Please enter your account details to redeem \$ 5  cash for one free lunch',
@@ -102,7 +92,7 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
                 SizedBox(
                   height: 31.h,
                 ),
-                _textFieldTile(
+                _textFieldnumber(
                     text: 'Account Number',
                     textEditingController: accountNumberController),
                 SizedBox(
@@ -118,7 +108,7 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
                 SizedBox(
                   height: 20.h,
                 ),
-                _textFieldTile(
+                _textFieldnumber(
                     text: 'Number of lunch you want to redeem',
                     textEditingController: numberOfLunchController),
                 SizedBox(
@@ -137,7 +127,9 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
                               'images/vuesax-outline-tick-circle.svg'),
                           dialogText: Text('Successfully',
                               textAlign: TextAlign.center,
-                              style: TextStyle(fontWeight: FontWeight.w600,fontSize: 14.sp)),
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 14.sp)),
                           dialogButton: AppButton(
                             margin: EdgeInsets.symmetric(horizontal: 24.w),
                             height: 48.h,
@@ -213,6 +205,54 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
     );
   }
 
+  Widget _textFieldnumber(
+      {required String text,
+      required TextEditingController textEditingController}) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          text,
+          style: TextStyle(
+            fontSize: 14.sp,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        SizedBox(
+          height: 10.h,
+        ),
+        SizedBox(
+          height: 48.h,
+          width: 382.w,
+          child: TextField(
+            cursorColor: AppColor.plainBlack,
+            style: TextStyle(fontSize: 14.sp),
+            controller: textEditingController,
+            keyboardType: TextInputType.number,
+            maxLines: 3,
+            decoration: InputDecoration(
+              contentPadding: EdgeInsets.symmetric(
+                horizontal: 10.w,
+                vertical: 10.h,
+              ),
+              fillColor: Colors.white,
+              filled: true,
+              border: InputBorder.none,
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide(width: 2.w),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: const BorderSide(width: 2),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   Widget _selectPaymentMethod(
       String text, List<String> bank, String selectedBank) {
     return Container(
@@ -237,13 +277,22 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
             value: banks,
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 12.0.w),
-              child: Text(banks,style: TextStyle(fontSize: 14.sp),),
+              child: Text(
+                banks,
+                style: TextStyle(fontSize: 14.sp),
+              ),
             ),
           );
         }).toList(),
         hint: Padding(
           padding: EdgeInsets.only(left: 8.0.w),
-          child: Text('Select a bank',style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.w600,color: AppColor.black2),),
+          child: Text(
+            'Select a bank',
+            style: TextStyle(
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w600,
+                color: AppColor.black2),
+          ),
         ),
       ),
     );

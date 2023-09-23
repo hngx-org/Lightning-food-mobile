@@ -95,7 +95,12 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               SizedBox(
                 height: 22.h,
               ),
-              SizedBox(width: 382.w, child: Text('Password',style: TextStyle(fontSize: 14.sp),)),
+              SizedBox(
+                  width: 382.w,
+                  child: Text(
+                    'Password',
+                    style: TextStyle(fontSize: 14.sp),
+                  )),
               SizedBox(
                 height: 4.h,
               ),
@@ -106,7 +111,12 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               SizedBox(
                 height: 12.h,
               ),
-              SizedBox(width: 382.w, child:Text('Confirm Password',style: TextStyle(fontSize: 14.sp),)),
+              SizedBox(
+                  width: 382.w,
+                  child: Text(
+                    'Confirm Password',
+                    style: TextStyle(fontSize: 14.sp),
+                  )),
               SizedBox(
                 height: 4.h,
               ),
@@ -138,20 +148,15 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 width: 332.w,
                 buttonText: 'Continue',
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_)=>const LoginScreen()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const LoginScreen()));
                 },
                 buttonTextColor: AppColor.pureWhite,
                 fontSize: 16.sp,
               ),
-<<<<<<< HEAD
               dialogIcon: const Icon(
                 size: 100,
                 color: Color(0xFF08B839),
-=======
-              dialogIcon: Icon(
-                size: 100,
-                color: const Color(0xFF08B839),
->>>>>>> main
                 Iconsax.tick_circle,
               ),
               dialogText: Text(

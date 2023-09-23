@@ -23,141 +23,203 @@ class _SignUpScreenState extends State<AdminSignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(16),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: Text(
-                    'Register',
-                    style: TextStyle(
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        foregroundColor: AppColor.black2,
+        backgroundColor: AppColor.bgColor,
+        elevation: 0,
+        title: Text(
+          'Register ',
+          style: TextStyle(
+            fontSize: 20.sp,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Welcome on board!',
+                style: TextStyle(
+                  fontSize: 24.sp,
+                  fontWeight: FontWeight.w700,
                 ),
-                SizedBox(height: 5.h),
-                Text(
-                  'Welcome on board!',
+              ),
+              SizedBox(height: 16.h),
+              Text(
+                "Create an account to enjoy the lightening employees's app.",
+                style: TextStyle(fontSize: 16.sp),
+              ),
+              SizedBox(height: 28.h),
+              Text('Create Account',
                   style: TextStyle(
                     fontSize: 24.sp,
                     fontWeight: FontWeight.w700,
-                  ),
+                  )),
+              SizedBox(height: 16.h),
+              Text(
+                'To get started, we just need a few details from you',
+                style: TextStyle(fontSize: 16.sp),
+              ),
+              SizedBox(height: 22.h),
+              Text(
+                'Email Address',
+                style: TextStyle(fontSize: 16.sp),
+              ),
+              SizedBox(height: 4.h),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: AppColor.plainBlack),
+                  borderRadius: BorderRadius.circular(8.r),
                 ),
-                SizedBox(height: 10.h),
-                Text(
-                  "Create an account to enjoy the lightening employees's app.",
-                  style: TextStyle(fontSize: 16.sp),
-                ),
-                SizedBox(height: 10.h),
-                Text(
-                  'Create Account',
-                  style: Theme.of(context).textTheme.headlineLarge,
-                ),
-                SizedBox(height: 10.h),
-                const Text(
-                    'To get started, we just need a few details from you'),
-                SizedBox(height: 10.h),
-                const Text('Email Address'),
-                SizedBox(height: 5.h),
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: AppColor.plainBlack),
-                    borderRadius: BorderRadius.circular(8.r),
-                  ),
-                  height: 56.h,
-                  child: TextField(
-                    controller: _emailController,
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                      hintStyle: TextStyle(fontSize: 12.sp),
-                      hintText: 'e.g. kayjay@gmail.com',
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(8.r),
-                      ),
-                      contentPadding: EdgeInsets.symmetric(
-                        horizontal: 16.w,
-                        vertical: 10.h,
-                      ),
+                height: 56.h,
+                child: TextField(
+                  controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    hintStyle: TextStyle(fontSize: 12.sp),
+                    hintText: 'e.g. kayjay@gmail.com',
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 16.w,
+                      vertical: 10.h,
                     ),
                   ),
                 ),
-                SizedBox(height: 5.h),
-                Container(
-                  height: 4.h,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(),
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: Container(
-                          color: Theme.of(context).colorScheme.primary,
-                          width: 0,
-                        ),
-                      ),
-                      const Expanded(flex: 2, child: SizedBox()),
-                    ],
+              ),
+              SizedBox(height: 15.h),
+              Text(
+                'Organisation Name',
+                style: TextStyle(fontSize: 16.sp),
+              ),
+              SizedBox(height: 4.h),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: AppColor.plainBlack),
+                  borderRadius: BorderRadius.circular(8.r),
+                ),
+                height: 56.h,
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintStyle: TextStyle(fontSize: 12.sp),
+                    hintText: 'e.g. Extrano Empire',
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 16.w,
+                      vertical: 10.h,
+                    ),
                   ),
                 ),
-                SizedBox(height: 84.h),
-                AppButton(
-                  height: 50.h,
-                  buttonColor: AppColor.primaryColor,
-                  width: double.infinity,
-                  buttonText: 'Continue',
-                  fontSize: 16.sp,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const EmailConfirmationScreen(),
-                      ),
-                    );
-                  },
-                  buttonTextColor: AppColor.pureWhite,
+              ),
+              SizedBox(height: 15.h),
+              Text(
+                'Lunch Price',
+                style: TextStyle(fontSize: 16.sp),
+              ),
+              SizedBox(height: 4.h),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: AppColor.plainBlack),
+                  borderRadius: BorderRadius.circular(8.r),
                 ),
-                SizedBox(height: 107.h),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                height: 56.h,
+                child: TextField(
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    hintStyle: TextStyle(fontSize: 12.sp),
+                    hintText: 'e.g. 10000',
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 16.w,
+                      vertical: 10.h,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 12.h),
+              Container(
+                height: 4.h,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16.sp),
+                  border: Border.all(),
+                ),
+                child: Row(
                   children: [
-                    const Text('Have an account already?'),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const LoginScreen(),
-                          ),
-                        );
-                      },
-                      child: const Text(
-                        'Log in',
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        color: AppColor.primaryColor,
+                        width: 0,
                       ),
                     ),
+                    const Expanded(flex: 1, child: SizedBox()),
+                    const Expanded(flex: 1, child: SizedBox()),
                   ],
-                )
-              ],
-            ),
+                ),
+              ),
+              SizedBox(height: 84.h),
+              AppButton(
+                height: 50.h,
+                buttonColor: AppColor.primaryColor,
+                width: double.infinity,
+                buttonText: 'Continue',
+                fontSize: 16.sp,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const EmailConfirmationScreen(),
+                    ),
+                  );
+                },
+                buttonTextColor: AppColor.pureWhite,
+              ),
+              SizedBox(height: 107.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Have an account already?',
+                    style: TextStyle(fontSize: 14.sp),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const LoginScreen(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'Log in',
+                      style: TextStyle(
+                          fontSize: 14.sp,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
+              )
+            ],
           ),
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _emailController.dispose();
-    super.dispose();
   }
 }

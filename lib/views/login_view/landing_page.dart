@@ -1,6 +1,7 @@
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/views/login_view/admin_signup_screen.dart';
 import 'package:lightning_food_mobile/views/login_view/login_screen.dart';
 import 'package:lightning_food_mobile/views/signup_successful/reusable_confetti.dart';
@@ -71,19 +72,19 @@ class _LandingScreenState extends State<LandingScreen> {
               child: Container(
                 width: 210.w,
                 height: 219.h,
-                decoration: const ShapeDecoration(
+                decoration: ShapeDecoration(
                   gradient: LinearGradient(
-                    begin: Alignment(0.00, -1.00),
-                    end: Alignment(0, 1),
-                    colors: [Color(0xFFFFDB58), Color(0x00FFE278)],
+                    begin: const Alignment(0.00, -1.00),
+                    end: const Alignment(0, 1),
+                    colors: [AppColor.secondaryColor, const Color(0x00FFE278)],
                   ),
-                  shape: OvalBorder(),
+                  shape: const OvalBorder(),
                 ),
                 child: Center(
                   child: Text(
                     'USER',
                     style: TextStyle(
-                      color: const Color(0xFF4C4C4C),
+                      color: AppColor.black33,
                       fontSize: 24.sp,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w700,
@@ -115,11 +116,11 @@ class _LandingScreenState extends State<LandingScreen> {
                         colors: [Color(0x00FFA776), Color(0xFFFFA776)]),
                     shape: OvalBorder(),
                   ),
-                  child: const Center(
+                  child: Center(
                     child: Text(
                       'ADMIN',
                       style: TextStyle(
-                        color: Color(0xFF4C4C4C),
+                        color: AppColor.black33,
                         fontSize: 24,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w700,

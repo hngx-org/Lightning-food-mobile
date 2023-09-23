@@ -47,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(left: 24.w,right: 24.w),
+          padding: EdgeInsets.only(left: 24.w, right: 24.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -212,15 +212,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 hintText: hintText,
                 border: OutlineInputBorder(
                   borderSide: BorderSide(color: AppColor.plainBlack),
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.r),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: AppColor.plainBlack),
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.r),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: AppColor.plainBlack),
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.r),
                 ),
                 suffixIcon: icon,
               ),
