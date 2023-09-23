@@ -74,15 +74,15 @@ class _ChooseLunchScreenState extends State<ChooseLunchScreen> {
             children: [
               _singleSendLunchTile(
                   profilePath: 'images/lady.jpeg', tileText: 'Joy Lu'),
-              const SizedBox(
-                height: 30,
+              SizedBox(
+                height: 30.h,
               ),
               Text(
                 'How many lunches will you like to send?',
                 style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
               ),
-              const SizedBox(
-                height: 24,
+              SizedBox(
+                height: 24.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -94,7 +94,7 @@ class _ChooseLunchScreenState extends State<ChooseLunchScreen> {
                       buttonTextColor: Colors.white,
                       onTap: () {},
                       buttonColor: AppColor.primaryColor,
-                      fontSize: 14.sp),
+                      fontSize: 12.sp),
                   AppButton(
                       height: 87.h,
                       width: 96.w,
@@ -102,7 +102,7 @@ class _ChooseLunchScreenState extends State<ChooseLunchScreen> {
                       buttonTextColor: Colors.black,
                       onTap: () {},
                       buttonColor: AppColor.secondaryColor,
-                      fontSize: 14.sp),
+                      fontSize: 12.sp),
                   AppButton(
                       height: 87.h,
                       width: 96.w,
@@ -110,7 +110,7 @@ class _ChooseLunchScreenState extends State<ChooseLunchScreen> {
                       buttonTextColor: Colors.black,
                       onTap: () {},
                       buttonColor: AppColor.tetiaryColor,
-                      fontSize: 14.sp),
+                      fontSize: 12.sp),
                 ],
               ),
               SizedBox(
@@ -155,10 +155,10 @@ class _ChooseLunchScreenState extends State<ChooseLunchScreen> {
                       builder: (_) => DialogueBox(
                         dialogIcon: SvgPicture.asset(
                             'images/vuesax-outline-tick-circle.svg'),
-                        dialogText: const Text(
+                        dialogText: Text(
                             'You have sent a free lunch to Joy Lu ',
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontWeight: FontWeight.w600)),
+                            style: TextStyle(fontWeight: FontWeight.w600,fontSize: 14.sp)),
                         dialogButton: AppButton(
                           margin: EdgeInsets.symmetric(horizontal: 24.w),
                           height: 48.h,
@@ -191,6 +191,8 @@ class _ChooseLunchScreenState extends State<ChooseLunchScreen> {
       height: 168.h,
       width: 382.w,
       child: TextField(
+        cursorColor: AppColor.plainBlack,
+        style: TextStyle(fontSize: 14.sp),
         maxLines: 20,
         focusNode: _focusNode,
         decoration: InputDecoration(

@@ -53,20 +53,21 @@ class SendFreeLunch extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(
-                height: 8,
+              SizedBox(
+                height: 8.h,
               ),
               Image.asset(
+                fit: BoxFit.contain,
                 height: 24.h,
                 width: 24.w,
                 'images/celebrate_icon.png',
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: 20.h,
               ),
               _textField(),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: 20.h,
               ),
               Expanded(
                 flex: 1,
@@ -97,10 +98,16 @@ class SendFreeLunch extends StatelessWidget {
   }
 
   Widget _textField() {
-    return SizedBox(
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: AppColor.plainBlack,width: 2),
+        borderRadius: BorderRadius.circular(8.r)
+      ),
       height: 44.h,
       width: 382.w,
       child: TextField(
+        cursorColor: AppColor.plainBlack,
+        style: TextStyle(fontSize: 14.sp),
         decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(
             horizontal: 5.w,
@@ -118,11 +125,11 @@ class SendFreeLunch extends StatelessWidget {
           border: InputBorder.none,
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5),
-            borderSide: BorderSide(width: 1.5.w),
+            borderSide: BorderSide.none,
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5),
-            borderSide: const BorderSide(width: 1.5),
+            borderSide: BorderSide.none,
           ),
         ),
       ),

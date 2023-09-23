@@ -49,6 +49,7 @@ class HomeScreen extends StatelessWidget {
                         'images/star.png',
                         height: 20.h,
                         width: 20.w,
+                        fit: BoxFit.contain,
                       )
                     ],
                   ),
@@ -65,10 +66,10 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 12.h),
+                SizedBox(height: 24.h),
                 Container(
                   width: 382.w,
-                  height: 243.h,
+                  height: 300.h,
                   decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
@@ -89,7 +90,7 @@ class HomeScreen extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 15.sp, fontWeight: FontWeight.bold)),
                       SizedBox(
-                        height: 10.h,
+                        height: 8.h,
                       ),
                       Text("7",
                           style: TextStyle(
@@ -100,11 +101,12 @@ class HomeScreen extends StatelessWidget {
                       Image(
                         image: const AssetImage("images/coins.png"),
                         width: 100.w,
+                        height: 46.h,
                       ),
-
-                      const Text("Free Lunches",
+                      SizedBox(height: 8.h,),
+                      Text("Free Lunches",
                           style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold)),
+                              fontSize: 20.sp, fontWeight: FontWeight.bold)),
                       SizedBox(
                         height: 8.h,
                       ),
@@ -141,7 +143,8 @@ class HomeScreen extends StatelessWidget {
                             },
                             buttonColor: AppColor.pureWhite,
                             fontSize: 14.sp,
-                          )
+                          ),
+                          SizedBox(height: 20.h,),
                         ],
                       ),
                     ],

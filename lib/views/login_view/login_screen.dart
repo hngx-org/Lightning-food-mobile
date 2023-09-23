@@ -45,9 +45,9 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.only(left: 24.w,right: 24.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -184,7 +184,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget _reusableTextField(bool isObscure, String hintText, String text,
       Widget? icon, TextEditingController textEditingController) {
     return SizedBox(
-      height: 88.h,
+      height: 100.h,
       width: 382.w,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

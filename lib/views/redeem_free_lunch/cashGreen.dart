@@ -28,10 +28,11 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 17.w, vertical: 10.h),
+            padding:  EdgeInsets.symmetric(horizontal: 24.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(height: 38.h,),
                 GestureDetector(
                   onTap: () {
                     Navigator.pop(context);
@@ -41,9 +42,11 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
                 SizedBox(
                   height: 30.h,
                 ),
-                Center(
+                Container(
+                  width: 382.w,
                   child: Text(
                     'Redeem Free Lunch For Cash',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 20.sp,
                       color: Colors.black,
@@ -54,25 +57,34 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
                 SizedBox(
                   height: 8.h,
                 ),
-                Center(
-                  child: Text(
-                    'Each Free Lunch Voucher is worth \$ 5 Naira!',
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                    ),
+                Container(
+                  width: 382.w,
+                  child: Column(
+                    children: [
+                      Text(
+                        'Each Free Lunch Voucher is worth \$ 5 Naira!',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(
                   height: 40.h,
                 ),
-                Text(
-                  'Please enter your account details to redeem \$ 5  cash for one free lunch',
-                  style: TextStyle(
-                    fontSize: 16.sp,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500,
+                Container(
+                  width: 382.w,
+                  child: Text(
+                    'Please enter your account details to redeem \$ 5  cash for one free lunch',
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -111,9 +123,9 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
                         builder: (_) => DialogueBox(
                           dialogIcon: SvgPicture.asset(
                               'images/vuesax-outline-tick-circle.svg'),
-                          dialogText: const Text('Successfully',
+                          dialogText: Text('Successfully',
                               textAlign: TextAlign.center,
-                              style: TextStyle(fontWeight: FontWeight.w600)),
+                              style: TextStyle(fontWeight: FontWeight.w600,fontSize: 14.sp)),
                           dialogButton: AppButton(
                             margin: EdgeInsets.symmetric(horizontal: 24.w),
                             height: 48.h,
@@ -162,6 +174,8 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
           height: 48.h,
           width: 382.w,
           child: TextField(
+            cursorColor: AppColor.plainBlack,
+            style: TextStyle(fontSize: 14.sp),
             controller: textEditingController,
             maxLines: 3,
             decoration: InputDecoration(
@@ -210,14 +224,14 @@ class _CashGreenScreenState extends State<CashGreenScreen> {
           return DropdownMenuItem(
             value: banks,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              child: Text(banks),
+              padding: EdgeInsets.symmetric(horizontal: 12.0.w),
+              child: Text(banks,style: TextStyle(fontSize: 14.sp),),
             ),
           );
         }).toList(),
-        hint: const Padding(
-          padding: EdgeInsets.only(left: 8.0),
-          child: Text('Select a bank'),
+        hint: Padding(
+          padding: EdgeInsets.only(left: 8.0.w),
+          child: Text('Select a bank',style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.w600,color: AppColor.black2),),
         ),
       ),
     );
