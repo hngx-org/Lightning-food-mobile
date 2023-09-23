@@ -5,7 +5,7 @@ import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/views/login_view/login_screen.dart';
 
 import '../edit_profile_screen.dart';
-// import 'package:lightning_food_mobile/views/profile_screen/staff_invite_screen/staff_invite_screen.dart';
+import 'package:lightning_food_mobile/views/profile_screen/staff_invite_screen/staff_invite_screen.dart';
 
 import 'profile_page_button.dart';
 
@@ -20,9 +20,9 @@ class ProfileSegment2 extends StatefulWidget {
 }
 
 class _ProfileSegment2State extends State<ProfileSegment2> {
-  bool isAdmin = false;
   @override
   Widget build(BuildContext context) {
+    bool isAdmin = true;
     return SizedBox(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -43,27 +43,24 @@ class _ProfileSegment2State extends State<ProfileSegment2> {
               },
             ),
             isAdmin
-                ? Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Column(
-                      children: [
-                        SizedBox(height: 8.h),
-                        ProfilePageButton(
-                          leadingIcon: const Icon(
-                            Iconsax.message_edit,
-                          ),
-                          buttonLabel: 'Invite User',
-                          buttonColor: AppColor.secondaryColor,
-                          onTap: () {
-                            // Navigator.of(context).push(
-                            //   MaterialPageRoute(
-                            //     builder: (context) => const StaffInviteScreen(),
-                            //   ),
-                            // );
-                          },
+                ? Column(
+                    children: [
+                      SizedBox(height: 8.h),
+                      ProfilePageButton(
+                        leadingIcon: const Icon(
+                          Iconsax.message_edit,
                         ),
-                      ],
-                    ),
+                        buttonLabel: 'Invite User',
+                        buttonColor: AppColor.secondaryColor,
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const StaffInviteScreen(),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
                   )
                 : const SizedBox(height: 0),
             SizedBox(height: 8.h),
