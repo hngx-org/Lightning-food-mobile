@@ -102,7 +102,7 @@ class _LandingScreenState extends State<LandingScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const AdminSignUpScreen(),
+                      builder: (context) => AdminSignUpScreen(),
                     ),
                   );
                 },

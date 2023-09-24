@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
@@ -6,12 +7,22 @@ import 'package:lightning_food_mobile/main.dart';
 import 'package:lightning_food_mobile/views/send_free_lunch/choose_lunch_screen.dart';
 
 import '../../constants/app_widgets.dart';
+import '../../view_models/user_data_provider.dart';
 
-class SendFreeLunch extends StatelessWidget {
+
+
+class SendFreeLunch extends ConsumerStatefulWidget {
   const SendFreeLunch({super.key});
 
   @override
+  ConsumerState<SendFreeLunch> createState() => _SendFreeLunchState();
+}
+
+class _SendFreeLunchState extends ConsumerState<SendFreeLunch> {
+  @override
+
   Widget build(BuildContext context) {
+    final userList = ref.watch(userDataProvider);
     return Scaffold(
       backgroundColor: AppColor.bgColor,
       appBar: AppBar(

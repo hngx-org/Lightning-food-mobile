@@ -1,28 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/constants/app_widgets.dart';
+import 'package:lightning_food_mobile/constants/controllers/admin_controllers.dart';
+import 'package:lightning_food_mobile/main.dart';
+import 'package:lightning_food_mobile/repositories/auth_repository.dart';
+import 'package:lightning_food_mobile/view_models/auth_view_model.dart';
+import 'package:lightning_food_mobile/views/Home/homeScreen.dart';
 import 'package:lightning_food_mobile/views/login_view/login_screen.dart';
+import 'package:lightning_food_mobile/views/sign_up_views/confirm_admin_signup.dart';
 import 'package:lightning_food_mobile/views/sign_up_views/email_confirmation_screen.dart';
+import 'package:lightning_food_mobile/views/signup_successful/signupSuccess.dart';
 
-class AdminSignUpScreen extends StatefulWidget {
-  const AdminSignUpScreen({super.key});
 
+
+
+class AdminSignUpScreen extends ConsumerWidget {
+  AdminSignUpScreen({super.key});
+
+  // late TextEditingController _emailController;
+  // final signUpProvider = FutureProvider<Map<String, dynamic>>((ref) async {
+  //   final signUpViewModel = ref.read(signUpViewModelProvider);
+  //   return signUpViewModel.signUpAdmin(
+  //     orgName: orgName.text,
+  //     email: orgEmail.text,
+  //     lunchPrice: lunchPrice.text,
+  //     password: adminPassword.text,
+  //   );
+  // });
+
+  // final res = ref.read(authRepoProvider).signUpAdmin(
   @override
-  State<AdminSignUpScreen> createState() => _SignUpScreenState();
-}
-
-class _SignUpScreenState extends State<AdminSignUpScreen> {
-  late TextEditingController _emailController;
-
-  @override
-  void initState() {
-    super.initState();
-    _emailController = TextEditingController();
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    // final signUp = ref.watch(signUpProvider);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -79,7 +90,7 @@ class _SignUpScreenState extends State<AdminSignUpScreen> {
                 ),
                 height: 56.h,
                 child: TextField(
-                  controller: _emailController,
+                  controller: orgEmail,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     hintStyle: TextStyle(fontSize: 12.sp),
@@ -108,6 +119,7 @@ class _SignUpScreenState extends State<AdminSignUpScreen> {
                 ),
                 height: 56.h,
                 child: TextField(
+                  controller: orgName,
                   decoration: InputDecoration(
                     hintStyle: TextStyle(fontSize: 12.sp),
                     hintText: 'e.g. Extrano Empire',
@@ -135,6 +147,7 @@ class _SignUpScreenState extends State<AdminSignUpScreen> {
                 ),
                 height: 56.h,
                 child: TextField(
+                  controller: lunchPrice,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     hintStyle: TextStyle(fontSize: 12.sp),
@@ -150,7 +163,35 @@ class _SignUpScreenState extends State<AdminSignUpScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 12.h),
+              SizedBox(height: 4.h,),
+              SizedBox(height: 15.h),
+              Text(
+                'Password',
+                style: TextStyle(fontSize: 16.sp),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: AppColor.plainBlack),
+                  borderRadius: BorderRadius.circular(8.r),
+                ),
+                height: 56.h,
+                child: TextField(
+                  controller: adminPassword,
+                  decoration: InputDecoration(
+                    hintStyle: TextStyle(fontSize: 12.sp),
+                    hintText: '*********',
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 16.w,
+                      vertical: 10.h,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 8.h),
               Container(
                 height: 4.h,
                 width: double.infinity,
@@ -172,20 +213,37 @@ class _SignUpScreenState extends State<AdminSignUpScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 84.h),
+              SizedBox(height: 60.h),
               AppButton(
                 height: 50.h,
                 buttonColor: AppColor.primaryColor,
                 width: double.infinity,
                 buttonText: 'Continue',
                 fontSize: 16.sp,
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const EmailConfirmationScreen(),
-                    ),
-                  );
+                onTap: () async{
+
+                 final details = await ref.read(authViewModelProvider).signUpAdmin(orgName: orgName.text,
+                    email: orgEmail.text,
+                    lunchPrice: lunchPrice.text,
+                    password: adminPassword.text,);
+                 print(details);
+                 Navigator.push(context, MaterialPageRoute(builder: (_)=>AdminSignIn(password: adminPassword.text , email: orgEmail.text)));
+                  // signUp.when(data: (data){
+                  //   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_)=>Home()), (route) => false);
+                  //   return CircularProgressIndicator();
+                  //
+                  // }, error: (error, stackTrace){
+                  //   return ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Error ${error}")));
+                  // }, loading: (){
+                  //   return CircularProgressIndicator();
+                  // });
+
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => HomeScreen(),
+                  //   ),
+                  // );
                 },
                 buttonTextColor: AppColor.pureWhite,
               ),

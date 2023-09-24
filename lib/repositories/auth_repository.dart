@@ -16,6 +16,34 @@ const _forgotPasswordUrl =
 const _resetPasswordUrl =
     "https://team-lightning.onrender.com/api/auth/reset-password";
 
+final signUpViewModelProvider = Provider((ref) => SignUpViewModel());
+
+class SignUpViewModel {
+  final _dio = Dio();
+  Future<Map<String, dynamic>> signUpUser({
+    required String orgName,
+    required String email,
+    required String lunchPrice,
+    // required String password,
+  }) async {
+    try {
+      final response = await _dio.post(
+        _signUpAdminUrl,
+        data: {
+          "org_name": orgName,
+          "email": email,
+          "lunch_price": lunchPrice,
+          "currency_code": "NGN",
+          // "password": password
+        },
+      );
+      return (response.data);
+    } on Exception {
+      rethrow;
+    }
+  }
+}
+
 class AuthRepository {
   final _dio = Dio();
 
