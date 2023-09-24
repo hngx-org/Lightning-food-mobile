@@ -11,8 +11,6 @@ import 'package:lightning_food_mobile/models/withdrawalhistory_model.dart';
 import 'package:lightning_food_mobile/repositories/all_user_repository.dart';
 import 'package:lightning_food_mobile/repositories/auth_repository.dart';
 
-final userDataProvider = ChangeNotifierProvider((ref) => UserDataViewModel());
-
 class UserDataViewModel extends ChangeNotifier {
   List<gt.UserData> _allUsers = [];
   List<WithdrawalHistoryData> withdrawals = [];
@@ -52,7 +50,7 @@ class UserDataViewModel extends ChangeNotifier {
       token: _loginData!.accessToken,
       note: note,
       quantity: quantity,
-      receiverId: selectedUser!.id.toString(),
+      receiverId: selectedUser!.id.toString(),  
     );
     SendLunchResponse lunchResponse = SendLunchResponse.fromJson(response);
     return lunchResponse.success;
@@ -103,7 +101,8 @@ class UserDataViewModel extends ChangeNotifier {
   }
 
   getLunchHistory() async {
-    UserRepository userRepository = UserRepository();
+    UserRepository userRepo
+                          sitory = UserRepository();
 
     final response =
         await userRepository.lunchHistory(token: _loginData!.accessToken);
@@ -115,6 +114,8 @@ class UserDataViewModel extends ChangeNotifier {
     }
     notifyListeners();
   }
+                        
+                      
 
   getUserById(String id) async {
     UserRepository userRepository = UserRepository();
@@ -146,3 +147,6 @@ class UserDataViewModel extends ChangeNotifier {
     print(lunchHistoryResponse);
   }
 }
+
+                            
+                          
