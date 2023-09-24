@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lightning_food_mobile/models/getallusers_model.dart' as gt;
+import 'package:lightning_food_mobile/models/getuserbyid_model.dart';
 import 'package:lightning_food_mobile/models/login_model.dart';
 import 'package:lightning_food_mobile/models/lunchhistory_model.dart';
 import 'package:lightning_food_mobile/models/resetpassword_model.dart';
@@ -115,6 +116,14 @@ class UserDataViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  getUserById(String id) async {
+    UserRepository userRepository = UserRepository();
+
+    final response = await userRepository.getUserById(
+        token: _loginData!.accessToken, id: id);
+    GetUserResponse userResponse = GetUserResponse.fromJson(response);
+    return userResponse.data.firstName;
+  }
 
   //TODO: Still having issues
   withdrawLunch({
