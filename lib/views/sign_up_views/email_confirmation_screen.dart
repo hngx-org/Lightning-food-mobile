@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/constants/app_widgets.dart';
+import 'package:lightning_food_mobile/view_models/auth_view_model.dart';
 import 'package:lightning_food_mobile/views/signup_successful/signupSuccess.dart';
 
-class EmailConfirmationScreen extends StatefulWidget {
+class EmailConfirmationScreen extends ConsumerStatefulWidget {
   const EmailConfirmationScreen({super.key});
 
   @override
-  State<EmailConfirmationScreen> createState() =>
+  ConsumerState<EmailConfirmationScreen> createState() =>
       _EmailConfirmationScreenState();
 }
 
-class _EmailConfirmationScreenState extends State<EmailConfirmationScreen> {
+class _EmailConfirmationScreenState
+    extends ConsumerState<EmailConfirmationScreen> {
   late TextEditingController _codeController;
 
   @override
@@ -51,23 +54,30 @@ class _EmailConfirmationScreenState extends State<EmailConfirmationScreen> {
                 ),
               ),
               SizedBox(height: 16.h),
-               Text("We've sent a 6 digit code to mayacox@gmail.com.", style: TextStyle(fontSize: 14.sp),),
-              Text("The code expires shortly, so please enter it soon.", style: TextStyle(fontSize: 14.sp),),
+              Text(
+                "We've sent a 6 digit code to mayacox@gmail.com.",
+                style: TextStyle(fontSize: 14.sp),
+              ),
+              Text(
+                "The code expires shortly, so please enter it soon.",
+                style: TextStyle(fontSize: 14.sp),
+              ),
               SizedBox(height: 22.h),
-              Text('Confirmation code',style: TextStyle(fontSize: 14.sp),),
+              Text(
+                'Confirmation code',
+                style: TextStyle(fontSize: 14.sp),
+              ),
               SizedBox(height: 4.h),
               Container(
                 height: 56.h,
                 decoration: BoxDecoration(
-                  border: Border.all(color: AppColor.plainBlack),
-                  borderRadius: BorderRadius.circular(8.r)
-                ),
+                    border: Border.all(color: AppColor.plainBlack),
+                    borderRadius: BorderRadius.circular(8.r)),
                 child: TextField(
                   controller: _codeController,
                   style: TextStyle(fontSize: 14.sp),
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
-
                     border: OutlineInputBorder(
                       borderSide: BorderSide.none,
                       borderRadius: BorderRadius.circular(8),
@@ -108,7 +118,12 @@ class _EmailConfirmationScreenState extends State<EmailConfirmationScreen> {
                 buttonColor: AppColor.primaryColor,
                 buttonText: 'Continue',
                 buttonTextColor: AppColor.pureWhite,
-                onTap: () {
+                onTap: () async {
+                  //TODO: Fix this guy later
+                  final details =
+                      await ref.read(authViewModelProvider).confirmInvite(
+                            verificationCode: _codeController.text,
+                          );
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -120,7 +135,10 @@ class _EmailConfirmationScreenState extends State<EmailConfirmationScreen> {
               ),
               SizedBox(height: 107.h),
               Center(
-                child: Text("Can't find your code? Check your spam folder!",style: TextStyle(fontSize: 14.sp),),
+                child: Text(
+                  "Can't find your code? Check your spam folder!",
+                  style: TextStyle(fontSize: 14.sp),
+                ),
               ),
             ],
           ),

@@ -13,12 +13,19 @@ import 'package:lightning_food_mobile/views/send_free_lunch/send_free_lunch_scre
 
 
 
-class HomeScreen extends ConsumerWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends ConsumerState<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
     final homeUserDetails = ref.watch(userDataProvider);
+    homeUserDetails.getLunchHistory();
+    homeUserDetails.getWithdrawalHistory();
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(

@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/constants/app_widgets.dart';
+import 'package:lightning_food_mobile/view_models/auth_view_model.dart';
 import 'package:lightning_food_mobile/views/login_view/login_screen.dart';
 import 'package:lightning_food_mobile/views/sign_up_views/email_confirmation_screen.dart';
 
-class SignUpScreen extends StatefulWidget {
+class SignUpScreen extends ConsumerStatefulWidget {
   const SignUpScreen({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  ConsumerState<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _SignUpScreenState extends ConsumerState<SignUpScreen> {
   late TextEditingController _emailController;
 
   @override
@@ -130,7 +132,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const EmailConfirmationScreen(),
+                      builder: (_) => const EmailConfirmationScreen(),
                     ),
                   );
                 },

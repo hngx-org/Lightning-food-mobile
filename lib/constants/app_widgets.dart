@@ -56,61 +56,30 @@ class AppButton extends StatelessWidget {
   }
 }
 
-class ContactListView extends StatelessWidget {
-  const ContactListView(
-      {Key? key,
-      required this.profilePath,
-      required this.listNumber,
-      required this.tileTitle,
-      required this.onTap,
-      required this.containerHeight,
-      this.time,
-      required this.iconImage,
-      this.physics,
-      this.icon})
-      : super(key: key);
+class CustomContactsListTile extends StatelessWidget {
+  const CustomContactsListTile({
+    super.key,
+    required this.onTap,
+    required this.containerHeight,
+    required this.profilePath,
+    required this.tileTitle,
+    required this.time,
+    required this.conColor,
+    required this.image,
+    required this.isVisible,
+  });
 
-  final String profilePath;
-  final String? time;
-  final dynamic physics;
-  final IconData? icon;
-  final bool iconImage;
-  final double containerHeight;
-  final int listNumber;
-  final String tileTitle;
   final Function()? onTap;
+  final double containerHeight;
+  final String profilePath;
+  final String tileTitle;
+  final String? time;
+  final Color conColor;
+  final String image;
+  final bool isVisible;
 
   @override
   Widget build(BuildContext context) {
-    List<Color> color = [
-      AppColor.secondaryColor,
-      AppColor.tetiaryColor,
-    ];
-    List<String> imageIcon = [
-      'images/heart.png',
-      'images/icon.png',
-    ];
-
-    return ListView.separated(
-      itemCount: listNumber,
-      physics: physics,
-      shrinkWrap: true,
-      separatorBuilder: (BuildContext context, child) {
-        return SizedBox(
-          height: 16.h,
-        );
-      },
-      itemBuilder: (BuildContext context, int index) {
-        return _listTile(
-          color[index % color.length],
-          imageIcon[index % imageIcon.length],
-          iconImage,
-        );
-      },
-    );
-  }
-
-  Widget _listTile(Color conColor, String image, bool isVisible) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -134,7 +103,7 @@ class ContactListView extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(color: Colors.black, width: 2.w),
                 image: DecorationImage(
-                  image: AssetImage(profilePath),
+                  image: NetworkImage(profilePath),
                   fit: BoxFit.cover,
                   filterQuality: FilterQuality.high,
                 ),

@@ -78,7 +78,7 @@ class _AdminSignInState extends ConsumerState<AdminSignIn> {
                     onTap: () async{
 
                       final logInDetails = await ref.read(authViewModelProvider).loginAdminOrUser(email: widget.email, password: widget.password);
-                      final updateUser = await ref.read(authViewModelProvider).
+                      // final updateUser = await ref.read(authViewModelProvider).
                       ref.read(userDataProvider.notifier).createUserDetails(response: logInDetails);
 
 

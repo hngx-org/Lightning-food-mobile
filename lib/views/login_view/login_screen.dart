@@ -1,21 +1,24 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/constants/app_widgets.dart';
 import 'package:lightning_food_mobile/main.dart';
+import 'package:lightning_food_mobile/view_models/auth_view_model.dart';
+import 'package:lightning_food_mobile/view_models/user_data_provider.dart';
 import 'package:lightning_food_mobile/views/Forgot_password_reset/forgot_password_reset.dart';
 import 'package:lightning_food_mobile/views/sign_up_views/sign_up_screen.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends ConsumerState<LoginScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool _isPasswordVisible = false;
@@ -130,11 +133,21 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 48.h,
                 width: 382.w,
                 buttonText: 'Login',
-                onTap: () {
+                onTap: () async {
+                  //TODO: Worked on this provider
+                  final logInDetails =
+                      await ref.read(authViewModelProvider).loginAdminOrUser(
+                            email: emailController.text,
+                            password: passwordController.text,
+                          );
+                  // final updateUser = await ref.read(authViewModelProvider).
+                  ref
+                      .read(userDataProvider.notifier)
+                      .createUserDetails(response: logInDetails);
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Home(),
+                      builder: (_) => const Home(),
                     ),
                   );
                 },

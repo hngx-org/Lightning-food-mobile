@@ -4,12 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/main.dart';
+import 'package:lightning_food_mobile/models/getallusers_model.dart';
 import 'package:lightning_food_mobile/views/send_free_lunch/choose_lunch_screen.dart';
 
 import '../../constants/app_widgets.dart';
 import '../../view_models/user_data_provider.dart';
-
-
 
 class SendFreeLunch extends ConsumerStatefulWidget {
   const SendFreeLunch({super.key});
@@ -20,7 +19,6 @@ class SendFreeLunch extends ConsumerStatefulWidget {
 
 class _SendFreeLunchState extends ConsumerState<SendFreeLunch> {
   @override
-
   Widget build(BuildContext context) {
     final userList = ref.watch(userDataProvider);
     return Scaffold(
@@ -82,20 +80,44 @@ class _SendFreeLunchState extends ConsumerState<SendFreeLunch> {
               ),
               Expanded(
                 flex: 1,
-                child: ContactListView(
-                  iconImage: false,
-                  tileTitle: 'Joy Lu',
-                  containerHeight: 68.h,
-                  listNumber: 20,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => const ChooseLunchScreen(),
-                      ),
+                //TODO: Changed this screen
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    UserData userToSend = userList.allUsers[index];
+                    List<Color> color = [
+                      AppColor.secondaryColor,
+                      AppColor.tetiaryColor,
+                    ];
+                    List<String> imageIcon = [
+                      'images/heart.png',
+                      'images/icon.png',
+                    ];
+                    return CustomContactsListTile(
+                      onTap: () {
+                        ref.read(userDataProvider).selectedUser =
+                            userList.allUsers[index];
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const ChooseLunchScreen(),
+                          ),
+                        );
+                      },
+                      containerHeight: 64.h,
+                      profilePath: userToSend.profilePic!,
+                      tileTitle: userToSend.firstName!,
+                      time: null,
+                      conColor: color[index % 2],
+                      image: imageIcon[index % 2],
+                      isVisible: false,
                     );
                   },
-                  profilePath: 'images/lady.jpeg',
+                  separatorBuilder: (context, index) {
+                    return SizedBox(
+                      height: 16.h,
+                    );
+                  },
+                  itemCount: userList.allUsers.length,
                 ),
               ),
               SizedBox(
@@ -111,9 +133,8 @@ class _SendFreeLunchState extends ConsumerState<SendFreeLunch> {
   Widget _textField() {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: AppColor.plainBlack,width: 2),
-        borderRadius: BorderRadius.circular(8.r)
-      ),
+          border: Border.all(color: AppColor.plainBlack, width: 2),
+          borderRadius: BorderRadius.circular(8.r)),
       height: 44.h,
       width: 382.w,
       child: TextField(
