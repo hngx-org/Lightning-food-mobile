@@ -1,7 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-final authRepoProvider = Provider((ref) => AuthRepository());
 
 const _signUpAdminUrl =
     "https://team-lightning.onrender.com/api/auth/signup/org-user";
