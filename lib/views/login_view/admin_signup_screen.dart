@@ -176,6 +176,7 @@ class AdminSignUpScreen extends ConsumerWidget {
                 ),
                 height: 56.h,
                 child: TextField(
+                  obscureText: true,
                   controller: adminPassword,
                   decoration: InputDecoration(
                     hintStyle: TextStyle(fontSize: 12.sp),

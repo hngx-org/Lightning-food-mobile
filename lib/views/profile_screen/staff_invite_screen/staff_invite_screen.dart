@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/constants/app_widgets.dart';
+import 'package:lightning_food_mobile/models/sendinvite_model.dart';
+import 'package:lightning_food_mobile/view_models/auth_view_model.dart';
+import 'package:lightning_food_mobile/view_models/user_data_provider.dart';
 import 'package:lightning_food_mobile/views/profile_screen/widgets/custom_profile_app_bar.dart';
 import 'package:lightning_food_mobile/views/profile_screen/widgets/edit_profile_text_field.dart';
 
-class StaffInviteScreen extends StatefulWidget {
+class StaffInviteScreen extends ConsumerStatefulWidget {
   const StaffInviteScreen({super.key});
 
   @override
-  State<StaffInviteScreen> createState() => _StaffInviteScreenState();
+  ConsumerState<StaffInviteScreen> createState() => _StaffInviteScreenState();
 }
 
-class _StaffInviteScreenState extends State<StaffInviteScreen> {
+class _StaffInviteScreenState extends ConsumerState<StaffInviteScreen> {
   FocusNode textFieldFocusNode = FocusNode();
 
   @override
@@ -24,6 +28,7 @@ class _StaffInviteScreenState extends State<StaffInviteScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final homeUserDetails = ref.watch(userDataProvider);
     final mailController = TextEditingController();
     return Scaffold(
       backgroundColor: AppColor.bgColor,
@@ -77,8 +82,13 @@ class _StaffInviteScreenState extends State<StaffInviteScreen> {
               fontSize: 16.sp,
               onTap: () async {
                 textFieldFocusNode.unfocus();
-                //TODO: Send request to the controller
-                //TODO: If the result is successful, show the dialog
+                SendInviteResponse hello = await ref.read(authViewModelProvider).sendInvite(
+                      accessToken: homeUserDetails.loginData.accessToken,
+                      email: mailController.text,
+                    );
+                print(hello);
+                //TODO: Remove the hello stuff
+                // ignore: use_build_context_synchronously
                 await showDialog(
                   context: context,
                   builder: (_) => DialogueBox(

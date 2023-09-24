@@ -53,15 +53,45 @@ class NotificationScreen extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.only(left: 8.w),
-                child: ContactListView(
-                    iconImage: true,
-                    profilePath: "images/lady.jpeg",
-                    physics: const NeverScrollableScrollPhysics(),
-                    listNumber: 1,
-                    tileTitle: "Joy Lu sent a free lunch",
-                    time: "1h",
-                    onTap: () {},
-                    containerHeight: 64.h),
+                //TODO: Changed this screen
+                child: ListView.separated(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    // UserData userToSend = userList.allUsers[index];
+                    List<Color> color = [
+                      AppColor.secondaryColor,
+                      AppColor.tetiaryColor,
+                    ];
+                    List<String> imageIcon = [
+                      'images/heart.png',
+                      'images/icon.png',
+                    ];
+                    return CustomContactsListTile(
+                      onTap: () {
+                        // Navigator.of(context).push(
+                        //   MaterialPageRoute(
+                        //     builder: (context) => const ChooseLunchScreen(),
+                        //   ),
+                        // );
+                      },
+                      containerHeight: 50.h,
+                      profilePath:
+                          'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngegg.com%2Fen%2Fsearch%3Fq%3Davatar&psig=AOvVaw2XUsoeIo0Ohx4nRrGRIuH_&ust=1695673102492000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCOCf99mIxIEDFQAAAAAdAAAAABAE',
+                      tileTitle: 'Angela Yu',
+                      time: null,
+                      conColor: color[index % 2],
+                      image: imageIcon[index % 2],
+                      isVisible: false,
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return SizedBox(
+                      height: 16.h,
+                    );
+                  },
+                  itemCount: 1,
+                ),
               ),
               SizedBox(
                 height: 20.h,
@@ -81,16 +111,39 @@ class NotificationScreen extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.only(left: 8.w),
-                child: ContactListView(
-                    iconImage: true,
-                    profilePath: "images/lady.jpeg",
-                    physics: const NeverScrollableScrollPhysics(),
-                    listNumber: 5,
-                    tileTitle: "Joy Lu sent a free lunch",
-                    time: "1h",
-                    icon: Iconsax.coin5,
-                    onTap: () {},
-                    containerHeight: 64.h),
+                //TODO: Changed this screen
+                child: ListView.separated(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    // UserData userToSend = userList.allUsers[index];
+                    List<Color> color = [
+                      AppColor.secondaryColor,
+                      AppColor.tetiaryColor,
+                    ];
+                    List<String> imageIcon = [
+                      'images/heart.png',
+                      'images/icon.png',
+                    ];
+                    return CustomContactsListTile(
+                      onTap: () {},
+                      containerHeight: 50.h,
+                      profilePath:
+                          'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngegg.com%2Fen%2Fsearch%3Fq%3Davatar&psig=AOvVaw2XUsoeIo0Ohx4nRrGRIuH_&ust=1695673102492000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCOCf99mIxIEDFQAAAAAdAAAAABAE',
+                      tileTitle: 'Angela Yu',
+                      time: null,
+                      conColor: color[index % 2],
+                      image: imageIcon[index % 2],
+                      isVisible: false,
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return SizedBox(
+                      height: 16.h,
+                    );
+                  },
+                  itemCount: 5,
+                ),
               ),
             ],
           ),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
+import 'package:lightning_food_mobile/view_models/user_data_provider.dart';
 import 'package:lightning_food_mobile/views/login_view/login_screen.dart';
 
 import '../edit_profile_screen.dart';
@@ -10,19 +12,19 @@ import 'package:lightning_food_mobile/views/profile_screen/staff_invite_screen/s
 import 'profile_page_button.dart';
 
 //TODO: Change to stateless widget when plugged to the controller
-class ProfileSegment2 extends StatefulWidget {
+class ProfileSegment2 extends ConsumerStatefulWidget {
   const ProfileSegment2({
     super.key,
   });
 
   @override
-  State<ProfileSegment2> createState() => _ProfileSegment2State();
+  ConsumerState<ProfileSegment2> createState() => _ProfileSegment2State();
 }
 
-class _ProfileSegment2State extends State<ProfileSegment2> {
+class _ProfileSegment2State extends ConsumerState<ProfileSegment2> {
   @override
   Widget build(BuildContext context) {
-    bool isAdmin = true;
+    final homeUserDetails = ref.watch(userDataProvider);
     return SizedBox(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -42,7 +44,7 @@ class _ProfileSegment2State extends State<ProfileSegment2> {
                 );
               },
             ),
-            isAdmin
+            homeUserDetails.loginData.user.isAdmin
                 ? Column(
                     children: [
                       SizedBox(height: 8.h),
@@ -99,6 +101,7 @@ class _ProfileSegment2State extends State<ProfileSegment2> {
               buttonLabel: 'Logout',
               buttonColor: AppColor.secondaryColor,
               onTap: () {
+                homeUserDetails.logoutUser();
                 Navigator.of(context).pushAndRemoveUntil(
                   MaterialPageRoute(
                     builder: (context) => const LoginScreen(),
