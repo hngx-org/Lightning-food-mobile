@@ -65,28 +65,28 @@ class CreateOrgAndUserData {
 }
 
 class CreateUser {
-  final String currencyCode;
-  final String currency;
-  final bool isDeleted;
+  final String? currencyCode;
+  final String? currency;
+  final bool? isDeleted;
   final int id;
   final String email;
   final bool isAdmin;
   final int orgId;
-  final double lunchCreditBalance;
-  final String updatedAt;
-  final String createdAt;
+  final String lunchCreditBalance;
+  final String? updatedAt;
+  final String? createdAt;
 
   CreateUser({
-    required this.currencyCode,
-    required this.currency,
-    required this.isDeleted,
+    this.currencyCode,
+    this.currency,
+    this.isDeleted,
     required this.id,
     required this.email,
     required this.isAdmin,
     required this.orgId,
     required this.lunchCreditBalance,
-    required this.updatedAt,
-    required this.createdAt,
+    this.updatedAt,
+    this.createdAt,
   });
 
   factory CreateUser.fromJson(Map<String, dynamic> json) {
@@ -98,7 +98,7 @@ class CreateUser {
       email: json['email'],
       isAdmin: json['is_admin'],
       orgId: json['org_id'],
-      lunchCreditBalance: json['lunch_credit_balance'].toDouble(),
+      lunchCreditBalance: json['lunch_credit_balance'].toString(),
       updatedAt: json['updated_at'],
       createdAt: json['created_at'],
     );
@@ -108,7 +108,7 @@ class CreateUser {
 class Organization {
   final int id;
   final String name;
-  final double lunchPrice;
+  final String lunchPrice;
   final String currencyCode;
   final String updatedAt;
   final String createdAt;
@@ -126,7 +126,7 @@ class Organization {
     return Organization(
       id: json['id'],
       name: json['name'],
-      lunchPrice: json['lunch_price'].toDouble(),
+      lunchPrice: json['lunch_price'],
       currencyCode: json['currency_code'],
       updatedAt: json['updated_at'],
       createdAt: json['created_at'],

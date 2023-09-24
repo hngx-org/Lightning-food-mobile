@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/constants/app_widgets.dart';
+import 'package:lightning_food_mobile/view_models/user_data_provider.dart';
 import 'package:lightning_food_mobile/views/Home/home_widgets.dart';
 import 'package:lightning_food_mobile/views/notification_screen/notifcation_screen.dart';
 import 'package:lightning_food_mobile/views/profile_screen/edit_profile_screen.dart';
 import 'package:lightning_food_mobile/views/redeem_free_lunch/redeemGreen.dart';
 import 'package:lightning_food_mobile/views/send_free_lunch/send_free_lunch_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+
+
+class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final homeUserDetails = ref.watch(userDataProvider);
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -41,7 +46,7 @@ class HomeScreen extends StatelessWidget {
                   title: Row(
                     children: [
                       Text(
-                        'Hello, Maya! ',
+                        'Hello, ${homeUserDetails.loginData.user.isAdmin == true? "Admin": homeUserDetails.loginData.user.firstName} ',
                         style: TextStyle(
                             fontSize: 20.sp, fontWeight: FontWeight.bold),
                       ),
@@ -92,7 +97,7 @@ class HomeScreen extends StatelessWidget {
                       SizedBox(
                         height: 8.h,
                       ),
-                      Text("7",
+                      Text("${homeUserDetails.loginData.user.lunchCreditBalance}",
                           style: TextStyle(
                               fontSize: 30.sp, fontWeight: FontWeight.w900)),
                       // const SizedBox(

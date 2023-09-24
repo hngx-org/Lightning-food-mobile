@@ -33,6 +33,7 @@ dependencies:
   dio: ^5.3.3
   flutter:
     sdk: flutter
+  flutter_riverpod: ^2.4.0
   flutter_screenutil: ^5.9.0
   flutter_svg: ^2.0.7
   google_fonts: ^6.1.0
