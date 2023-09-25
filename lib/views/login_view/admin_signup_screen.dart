@@ -4,14 +4,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/constants/app_widgets.dart';
 import 'package:lightning_food_mobile/constants/controllers/admin_controllers.dart';
-import 'package:lightning_food_mobile/main.dart';
+
 import 'package:lightning_food_mobile/repositories/auth_repository.dart';
 import 'package:lightning_food_mobile/view_models/auth_view_model.dart';
-import 'package:lightning_food_mobile/views/Home/homeScreen.dart';
+
 import 'package:lightning_food_mobile/views/login_view/login_screen.dart';
 import 'package:lightning_food_mobile/views/sign_up_views/confirm_admin_signup.dart';
-import 'package:lightning_food_mobile/views/sign_up_views/email_confirmation_screen.dart';
-import 'package:lightning_food_mobile/views/signup_successful/signupSuccess.dart';
 
 
 
@@ -281,4 +279,15 @@ class AdminSignUpScreen extends ConsumerWidget {
       ),
     );
   }
+
+  @override
+  void dispose() {
+    adminPassword.dispose();
+    lunchPrice.dispose();
+    orgEmail.dispose();
+    orgEmail.dispose();
+    dispose();
+  }
 }
+
+

@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/constants/app_widgets.dart';
-import 'package:lightning_food_mobile/view_models/auth_view_model.dart';
-import 'package:lightning_food_mobile/views/signup_successful/signupSuccess.dart';
+import 'package:lightning_food_mobile/view_models/user_data_provider.dart';
+import 'package:lightning_food_mobile/views/password/password_screen.dart';
 
 class EmailConfirmationScreen extends ConsumerStatefulWidget {
   const EmailConfirmationScreen({super.key});
@@ -76,7 +76,7 @@ class _EmailConfirmationScreenState
                 child: TextField(
                   controller: _codeController,
                   style: TextStyle(fontSize: 14.sp),
-                  keyboardType: TextInputType.emailAddress,
+                  keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderSide: BorderSide.none,
@@ -120,14 +120,14 @@ class _EmailConfirmationScreenState
                 buttonTextColor: AppColor.pureWhite,
                 onTap: () async {
                   //TODO: Fix this guy later
-                  final details =
-                      await ref.read(authViewModelProvider).confirmInvite(
-                            verificationCode: _codeController.text,
-                          );
+                  await ref.read(userDataProvider).confirmUser(
+                        confirmationCode: int.parse(_codeController.text),
+                      );
+
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SignUpSuccessfulPage(),
+                      builder: (context) => PasswordScreen(),
                     ),
                   );
                 },

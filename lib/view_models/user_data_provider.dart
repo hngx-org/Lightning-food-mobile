@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lightning_food_mobile/models/confirminvite_model.dart';
 import 'package:lightning_food_mobile/models/getallusers_model.dart' as gt;
 import 'package:lightning_food_mobile/models/getuserbyid_model.dart';
 import 'package:lightning_food_mobile/models/login_model.dart';
@@ -14,6 +15,7 @@ import 'package:lightning_food_mobile/repositories/auth_repository.dart';
 final userDataProvider = ChangeNotifierProvider((ref) => UserDataViewModel());
 
 class UserDataViewModel extends ChangeNotifier {
+  List<String> tempUserData = [];
   List<gt.UserData> _allUsers = [];
   List<WithdrawalHistoryData> withdrawals = [];
   List<LunchHistoryData> lunchHistory = [];
@@ -26,6 +28,17 @@ class UserDataViewModel extends ChangeNotifier {
   late LoginData? _loginData;
   LoginData get loginData => _loginData!;
 
+  confirmUser({required int confirmationCode}) async {
+    AuthRepository authRepository = AuthRepository();
+    final response = await authRepository.confirmInvite(
+      verificationCode: confirmationCode,
+    );
+    ConfirmInviteResponse confirmInviteResponse =
+        ConfirmInviteResponse.fromJson(response);
+    tempUserData.add(confirmInviteResponse.data.email);
+    tempUserData.add(confirmInviteResponse.data.orgId.toString());
+  }
+
   createUserDetails({required LoginResponse response}) {
     _loginData = LoginData(
         accessToken: response.data.accessToken, user: response.data.user);
@@ -37,9 +50,21 @@ class UserDataViewModel extends ChangeNotifier {
   }
 
   logoutUser() {
+    tempUserData.clear();
     _allUsers.clear();
     selectedUser = null;
     selectedUser = null;
+  }
+
+  signUpNormalUser(String password) async {
+    AuthRepository authRepository = AuthRepository();
+    await authRepository.signUpUser(
+        orgId: tempUserData.last,
+        email: tempUserData.first,
+        password: password);
+    final response = await authRepository.loginAdminORUser(
+        email: tempUserData.first, password: password);
+    createUserDetails(response: LoginResponse.fromJson(response));
   }
 
   sendFreeLunch({
@@ -104,7 +129,7 @@ class UserDataViewModel extends ChangeNotifier {
 
   getLunchHistory() async {
     UserRepository userRepository = UserRepository();
-
+    lunchHistory = [];
     final response =
         await userRepository.lunchHistory(token: _loginData!.accessToken);
     LunchHistoryResponse lunchHistoryResponse =

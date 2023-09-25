@@ -1,17 +1,16 @@
 import "package:dio/dio.dart";
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:lightning_food_mobile/models/getuserbyid_model.dart';
 
 final usersRepoProvider = Provider((ref) => UserRepository());
-const _getUserUrl = "https://team-lightning.onrender.com/api/users";
-const _sendLunchUrl = 'https://team-lightning.onrender.com/api/lunch/send';
-const _lunchHistoryUrl = 'https://team-lightning.onrender.com/api/lunch';
+const _getUserUrl = "https://free-lunch.onrender.com/api/users";
+const _sendLunchUrl = 'https://free-lunch.onrender.com/api/lunch/send';
+const _lunchHistoryUrl = 'https://free-lunch.onrender.com/api/lunch';
 const _withdrawalUrl =
-    'https://team-lightning.onrender.com/api/withdrawal/request';
+    'https://free-lunch.onrender.com/api/withdrawal/request';
 const _withdrawalHistory =
-    'https://team-lightning.onrender.com/api/withdrawal/all';
+    'https://free-lunch.onrender.com/api/withdrawal/all';
 
-const _getUserByIdUrl = 'https://team-lightning.onrender.com/api/users/';
+const _getUserByIdUrl = 'https://free-lunch.onrender.com/api/users/';
 
 class UserRepository {
   final _dio = Dio();
