@@ -121,8 +121,9 @@ class _EmailConfirmationScreenState
                 onTap: () async {
                   //TODO: Fix this guy later
                   await ref.read(userDataProvider).confirmUser(
-                            confirmationCode: int.parse(_codeController.text),
-                          );
+                        confirmationCode: int.parse(_codeController.text),
+                      );
+
                   Navigator.push(
                     context,
                     MaterialPageRoute(

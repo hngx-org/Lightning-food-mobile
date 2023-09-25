@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
 import 'package:lightning_food_mobile/constants/app_widgets.dart';
+import 'package:lightning_food_mobile/view_models/user_data_provider.dart';
 import 'package:lightning_food_mobile/views/send_free_lunch/send_free_lunch_screen.dart';
 
-class ChooseLunchScreen extends StatefulWidget {
+class ChooseLunchScreen extends ConsumerStatefulWidget {
   const ChooseLunchScreen({super.key});
 
   @override
-  State<ChooseLunchScreen> createState() => _ChooseLunchScreenState();
+  ConsumerState<ChooseLunchScreen> createState() => _ChooseLunchScreenState();
 }
 
-class _ChooseLunchScreenState extends State<ChooseLunchScreen> {
+class _ChooseLunchScreenState extends ConsumerState<ChooseLunchScreen> {
+  final TextEditingController quantityController = TextEditingController();
+  final TextEditingController noteController = TextEditingController();
+
   final ScrollController _scrollController = ScrollController();
   final FocusNode _focusNode = FocusNode();
 
@@ -41,6 +46,7 @@ class _ChooseLunchScreenState extends State<ChooseLunchScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final homeUserDetails = ref.watch(userDataProvider);
     return Scaffold(
       backgroundColor: AppColor.bgColor,
       appBar: AppBar(
@@ -92,7 +98,9 @@ class _ChooseLunchScreenState extends State<ChooseLunchScreen> {
                       width: 96.w,
                       buttonText: '1 Free\nLunch',
                       buttonTextColor: Colors.white,
-                      onTap: () {},
+                      onTap: () {
+                        quantityController.text = "1";
+                      },
                       buttonColor: AppColor.primaryColor,
                       fontSize: 12.sp),
                   AppButton(
@@ -100,7 +108,9 @@ class _ChooseLunchScreenState extends State<ChooseLunchScreen> {
                       width: 96.w,
                       buttonText: 'Double\nFree\nLunch',
                       buttonTextColor: Colors.black,
-                      onTap: () {},
+                      onTap: () {
+                        quantityController.text = "2";
+                      },
                       buttonColor: AppColor.secondaryColor,
                       fontSize: 12.sp),
                   AppButton(
@@ -108,7 +118,9 @@ class _ChooseLunchScreenState extends State<ChooseLunchScreen> {
                       width: 96.w,
                       buttonText: 'Triple\nFree\nLunch',
                       buttonTextColor: Colors.black,
-                      onTap: () {},
+                      onTap: () {
+                        quantityController.text = "3";
+                      },
                       buttonColor: AppColor.tetiaryColor,
                       fontSize: 12.sp),
                 ],
@@ -126,7 +138,7 @@ class _ChooseLunchScreenState extends State<ChooseLunchScreen> {
               SizedBox(
                 height: 15.h,
               ),
-              _sendNoteTextField(),
+              _sendNoteTextField(noteController),
               SizedBox(
                 height: 10.h,
               ),
@@ -150,6 +162,10 @@ class _ChooseLunchScreenState extends State<ChooseLunchScreen> {
                   buttonText: 'Send Free Lunch',
                   buttonTextColor: Colors.white,
                   onTap: () {
+                    homeUserDetails.sendFreeLunch(
+                        note: noteController.text,
+                        quantity: quantityController.text);
+
                     showDialog(
                       context: context,
                       builder: (_) => DialogueBox(
@@ -158,7 +174,8 @@ class _ChooseLunchScreenState extends State<ChooseLunchScreen> {
                         dialogText: Text(
                             'You have sent a free lunch to Joy Lu ',
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontWeight: FontWeight.w600,fontSize: 14.sp)),
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600, fontSize: 14.sp)),
                         dialogButton: AppButton(
                           margin: EdgeInsets.symmetric(horizontal: 24.w),
                           height: 48.h,
@@ -186,11 +203,12 @@ class _ChooseLunchScreenState extends State<ChooseLunchScreen> {
     );
   }
 
-  Widget _sendNoteTextField() {
+  Widget _sendNoteTextField(TextEditingController controller) {
     return SizedBox(
       height: 168.h,
       width: 382.w,
       child: TextField(
+        controller: controller,
         cursorColor: AppColor.plainBlack,
         style: TextStyle(fontSize: 14.sp),
         maxLines: 20,

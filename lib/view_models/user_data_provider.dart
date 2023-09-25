@@ -30,9 +30,12 @@ class UserDataViewModel extends ChangeNotifier {
 
   confirmUser({required int confirmationCode}) async {
     AuthRepository authRepository = AuthRepository();
-    final response = await authRepository.confirmInvite(verificationCode: confirmationCode,);
-    ConfirmInviteResponse confirmInviteResponse = ConfirmInviteResponse.fromJson(response);
-    tempUserData.add( confirmInviteResponse.data.email);
+    final response = await authRepository.confirmInvite(
+      verificationCode: confirmationCode,
+    );
+    ConfirmInviteResponse confirmInviteResponse =
+        ConfirmInviteResponse.fromJson(response);
+    tempUserData.add(confirmInviteResponse.data.email);
     tempUserData.add(confirmInviteResponse.data.orgId.toString());
   }
 
@@ -47,9 +50,21 @@ class UserDataViewModel extends ChangeNotifier {
   }
 
   logoutUser() {
+    tempUserData.clear();
     _allUsers.clear();
     selectedUser = null;
     selectedUser = null;
+  }
+
+  signUpNormalUser(String password) async {
+    AuthRepository authRepository = AuthRepository();
+    await authRepository.signUpUser(
+        orgId: tempUserData.last,
+        email: tempUserData.first,
+        password: password);
+    final response = await authRepository.loginAdminORUser(
+        email: tempUserData.first, password: password);
+    createUserDetails(response: LoginResponse.fromJson(response));
   }
 
   sendFreeLunch({

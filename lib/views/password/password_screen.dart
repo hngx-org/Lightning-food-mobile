@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lightning_food_mobile/constants/app_colors.dart';
+import 'package:lightning_food_mobile/main.dart';
+import 'package:lightning_food_mobile/view_models/user_data_provider.dart';
+import 'package:lightning_food_mobile/views/Home/homeScreen.dart';
 import 'package:lightning_food_mobile/views/forgot_password_3_and_4/widgets/text_field.dart';
 import 'package:lightning_food_mobile/views/login_view/login_screen.dart';
 
 import '../../../constants/app_widgets.dart';
 
-class PasswordScreen extends StatefulWidget {
+class PasswordScreen extends ConsumerStatefulWidget {
   const PasswordScreen({super.key});
 
   @override
-  State<PasswordScreen> createState() => _PasswordScreenState();
+  ConsumerState<PasswordScreen> createState() => _PasswordScreenState();
 }
 
-class _PasswordScreenState extends State<PasswordScreen> {
+class _PasswordScreenState extends ConsumerState<PasswordScreen> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
-  TextEditingController();
+      TextEditingController();
   bool _showSuccessDialog = false; // Track whether to show the success dialog
 
   @override
@@ -36,6 +40,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final homeUserData = ref.watch(userDataProvider);
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xFFFFF9EA),
@@ -133,7 +138,15 @@ class _PasswordScreenState extends State<PasswordScreen> {
                 buttonText: 'Create Account',
                 onTap: () {
                   //TODO Login User and Navigate screeen
-                  _showSuccess();
+                  if (passwordController.text ==
+                      confirmPasswordController.text) {
+                    homeUserData.signUpNormalUser(passwordController.text);
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) => Home()));
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('passwords do not match')));
+                  }
                 },
                 buttonColor: AppColor.primaryColor,
                 buttonTextColor: AppColor.pureWhite,
