@@ -11,8 +11,6 @@ import 'package:lightning_food_mobile/views/profile_screen/edit_profile_screen.d
 import 'package:lightning_food_mobile/views/redeem_free_lunch/redeemGreen.dart';
 import 'package:lightning_food_mobile/views/send_free_lunch/send_free_lunch_screen.dart';
 
-
-
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
@@ -24,8 +22,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final homeUserDetails = ref.watch(userDataProvider);
-    homeUserDetails.getLunchHistory();
-    homeUserDetails.getWithdrawalHistory();
+    // homeUserDetails.getLunchHistory();
+    //homeUserDetails.getWithdrawalHistory();
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -53,7 +51,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   title: Row(
                     children: [
                       Text(
-                        'Hello, ${homeUserDetails.loginData.user.isAdmin == true? "Admin": homeUserDetails.loginData.user.firstName} ',
+                        'Hello, ${homeUserDetails.loginData.user.isAdmin == true ? "Admin" : homeUserDetails.loginData.user.firstName} ',
                         style: TextStyle(
                             fontSize: 20.sp, fontWeight: FontWeight.bold),
                       ),
@@ -104,7 +102,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       SizedBox(
                         height: 8.h,
                       ),
-                      Text("${homeUserDetails.loginData.user.lunchCreditBalance}",
+                      Text(
+                          "${homeUserDetails.loginData.user.lunchCreditBalance}",
                           style: TextStyle(
                               fontSize: 30.sp, fontWeight: FontWeight.w900)),
                       // const SizedBox(
@@ -115,7 +114,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                         width: 100.w,
                         height: 46.h,
                       ),
-                      SizedBox(height: 8.h,),
+                      SizedBox(
+                        height: 8.h,
+                      ),
                       Text("Free Lunches",
                           style: TextStyle(
                               fontSize: 20.sp, fontWeight: FontWeight.bold)),
@@ -156,7 +157,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                             buttonColor: AppColor.pureWhite,
                             fontSize: 14.sp,
                           ),
-                          SizedBox(height: 20.h,),
+                          SizedBox(
+                            height: 20.h,
+                          ),
                         ],
                       ),
                     ],
