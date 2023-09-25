@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lightning_food_mobile/models/confirminvite_model.dart';
 import 'package:lightning_food_mobile/models/getallusers_model.dart' as gt;
 import 'package:lightning_food_mobile/models/getuserbyid_model.dart';
 import 'package:lightning_food_mobile/models/login_model.dart';
@@ -11,7 +12,10 @@ import 'package:lightning_food_mobile/models/withdrawalhistory_model.dart';
 import 'package:lightning_food_mobile/repositories/all_user_repository.dart';
 import 'package:lightning_food_mobile/repositories/auth_repository.dart';
 
+final userDataProvider = ChangeNotifierProvider((ref) => UserDataViewModel());
+
 class UserDataViewModel extends ChangeNotifier {
+  List<String> tempUserData = [];
   List<gt.UserData> _allUsers = [];
   List<WithdrawalHistoryData> withdrawals = [];
   List<LunchHistoryData> lunchHistory = [];
@@ -23,6 +27,14 @@ class UserDataViewModel extends ChangeNotifier {
 
   late LoginData? _loginData;
   LoginData get loginData => _loginData!;
+
+  confirmUser({required int confirmationCode}) async {
+    AuthRepository authRepository = AuthRepository();
+    final response = await authRepository.confirmInvite(verificationCode: confirmationCode,);
+    ConfirmInviteResponse confirmInviteResponse = ConfirmInviteResponse.fromJson(response);
+    tempUserData.add( confirmInviteResponse.data.email);
+    tempUserData.add(confirmInviteResponse.data.orgId.toString());
+  }
 
   createUserDetails({required LoginResponse response}) {
     _loginData = LoginData(
@@ -50,7 +62,7 @@ class UserDataViewModel extends ChangeNotifier {
       token: _loginData!.accessToken,
       note: note,
       quantity: quantity,
-      receiverId: selectedUser!.id.toString(),  
+      receiverId: selectedUser!.id.toString(),
     );
     SendLunchResponse lunchResponse = SendLunchResponse.fromJson(response);
     return lunchResponse.success;
@@ -101,9 +113,8 @@ class UserDataViewModel extends ChangeNotifier {
   }
 
   getLunchHistory() async {
-    UserRepository userRepo
-                          sitory = UserRepository();
-
+    UserRepository userRepository = UserRepository();
+    lunchHistory = [];
     final response =
         await userRepository.lunchHistory(token: _loginData!.accessToken);
     LunchHistoryResponse lunchHistoryResponse =
@@ -114,8 +125,6 @@ class UserDataViewModel extends ChangeNotifier {
     }
     notifyListeners();
   }
-                        
-                      
 
   getUserById(String id) async {
     UserRepository userRepository = UserRepository();
@@ -147,6 +156,3 @@ class UserDataViewModel extends ChangeNotifier {
     print(lunchHistoryResponse);
   }
 }
-
-                            
-                          
