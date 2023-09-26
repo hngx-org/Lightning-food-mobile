@@ -33,17 +33,14 @@ class ConfirmInviteResponse {
 }
 
 class ConfirmInviteData {
-  final int orgId;
   final String email;
 
   ConfirmInviteData({
-    required this.orgId,
     required this.email,
   });
 
   factory ConfirmInviteData.fromJson(Map<String, dynamic> json) {
     return ConfirmInviteData(
-      orgId: json['org_id'],
       email: json['email'],
     );
   }

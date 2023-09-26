@@ -76,7 +76,7 @@ class _EmailConfirmationScreenState
                 child: TextField(
                   controller: _codeController,
                   style: TextStyle(fontSize: 14.sp),
-                  keyboardType: TextInputType.number,
+                  // keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderSide: BorderSide.none,
@@ -121,7 +121,7 @@ class _EmailConfirmationScreenState
                 onTap: () async {
                   //TODO: Fix this guy later
                   await ref.read(userDataProvider).confirmUser(
-                        confirmationCode: int.parse(_codeController.text),
+                        confirmationCode: _codeController.text,
                       );
 
                   Navigator.push(

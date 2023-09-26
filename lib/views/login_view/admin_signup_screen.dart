@@ -15,7 +15,7 @@ import 'package:lightning_food_mobile/views/sign_up_views/confirm_admin_signup.d
 
 
 class AdminSignUpScreen extends ConsumerWidget {
-  AdminSignUpScreen({super.key});
+  const AdminSignUpScreen({super.key});
 
   // late TextEditingController _emailController;
   // final signUpProvider = FutureProvider<Map<String, dynamic>>((ref) async {
@@ -145,6 +145,7 @@ class AdminSignUpScreen extends ConsumerWidget {
                 ),
                 height: 56.h,
                 child: TextField(
+                  textInputAction: TextInputAction.done,
                   controller: lunchPrice,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
@@ -174,6 +175,7 @@ class AdminSignUpScreen extends ConsumerWidget {
                 ),
                 height: 56.h,
                 child: TextField(
+                  textInputAction: TextInputAction.done,
                   obscureText: true,
                   controller: adminPassword,
                   decoration: InputDecoration(
@@ -280,7 +282,6 @@ class AdminSignUpScreen extends ConsumerWidget {
     );
   }
 
-  @override
   void dispose() {
     adminPassword.dispose();
     lunchPrice.dispose();
