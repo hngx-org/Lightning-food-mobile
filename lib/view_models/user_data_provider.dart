@@ -28,7 +28,7 @@ class UserDataViewModel extends ChangeNotifier {
   late LoginData? _loginData;
   LoginData get loginData => _loginData!;
 
-  confirmUser({required int confirmationCode}) async {
+  confirmUser({required String confirmationCode}) async {
     AuthRepository authRepository = AuthRepository();
     final response = await authRepository.confirmInvite(
       verificationCode: confirmationCode,
@@ -36,7 +36,6 @@ class UserDataViewModel extends ChangeNotifier {
     ConfirmInviteResponse confirmInviteResponse =
         ConfirmInviteResponse.fromJson(response);
     tempUserData.add(confirmInviteResponse.data.email);
-    tempUserData.add(confirmInviteResponse.data.orgId.toString());
   }
 
   createUserDetails({required LoginResponse response}) {
@@ -107,7 +106,7 @@ class UserDataViewModel extends ChangeNotifier {
         await userRepository.getUsers(token: _loginData!.accessToken);
     gt.GetAllUsersResponse getAllUsersResponse =
         gt.GetAllUsersResponse.fromJson(response);
-    for (int i = 0; 1 < getAllUsersResponse.users.length; i++) {
+    for (int i = 0; i < getAllUsersResponse.users.length; i++) {
       _allUsers.add(getAllUsersResponse.users[i]);
     }
     notifyListeners();

@@ -146,7 +146,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                             height: 45.h,
                             width: 157.w,
                             buttonText: 'Send Free Lunch',
-                            onTap: () {
+                            onTap: () async {
+                              await homeUserDetails.getAllUsers();
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(

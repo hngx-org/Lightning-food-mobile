@@ -4,18 +4,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 final authRepoProvider = Provider((ref) => AuthRepository());
 
 const _signUpAdminUrl =
-    "https://free-lunch.onrender.com/api/auth/signup/org-user";
+    "https://team-lightning.onrender.com/api/auth/signup/org-user";
     // "https://team-lightning.onrender.com/api/auth/signup/org-user";
-const _signUpUserUrl = "https://free-lunch.onrender.com/api/auth/signup";
-const _loginUrl = "https://free-lunch.onrender.com/api/auth/login";
+const _signUpUserUrl = "https://team-lightning.onrender.com/api/auth/signup";
+const _loginUrl = "https://team-lightning.onrender.com/api/auth/login";
 const _sendInviteUrl =
-    "https://free-lunch.onrender.com/api/organization/send-invite";
+    "https://team-lightning.onrender.com/api/organization/send-invite";
 const _confirmInviteUrl =
-    "https://free-lunch.onrender.com/api/organization/confirm-invite";
+    "https://team-lightning.onrender.com/api/organization/confirm-invite";
 const _forgotPasswordUrl =
-    "https://free-lunch.onrender.com/api/auth/forgot-password";
+    "https://team-lightning.onrender.com/api/auth/forgot-password";
 const _resetPasswordUrl =
-    "https://free-lunch.onrender.com/api/auth/reset-password";
+    "https://team-lightning.onrender.com/api/auth/reset-password";
 
 final signUpViewModelProvider = Provider((ref) => SignUpViewModel());
 
@@ -123,11 +123,11 @@ class AuthRepository {
   }
 
   Future<Map<String, dynamic>> confirmInvite(
-      {required int verificationCode}) async {
+      {required String verificationCode}) async {
     try {
       final response = await _dio.post(
         _confirmInviteUrl,
-        queryParameters: {'verificationCode': verificationCode},
+        data: {'verificationCode': verificationCode},
       );
       return (response.data);
     } on Exception {

@@ -60,7 +60,7 @@ class UserData {
   final String? phone;
   final bool isAdmin;
   final String? profilePic;
-  final int orgId;
+  final int? orgId;
   final double lunchCreditBalance;
   final String? refreshToken;
   final String? bankCode;
